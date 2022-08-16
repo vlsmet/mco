@@ -1,0 +1,691 @@
+;---------------------------
+; Синтаксис настроек: ?[variable] = значение
+;     extend_language = (Родительский язык, будет использоваться если код языка не найден)
+; Синтаксис языкового кода: [пространство:][код[.второй блок[.третий блок.[...]]]] = Перевод
+; Синтаксис текста перевода:
+;     \       - Экранирование символа     | Перевод и код перевода
+;     \xFF    - Вставить символ (UTF-8)   | Перевод и код перевода
+;     %[any]  - Динамичная переменная     | Только перевод
+;     %{any}  - Статичная переменная      | Только перевод
+;     ^suffix - Суффикс кода              | Только код перевода
+; Динамичные переменные: (new)
+;     %[variable] - Вставить локальную переменную
+;     \\%[...]             - Экранирование локальной переменной
+; Статичная переменная: (Постоянна с момента запуска программы)
+;     %{language code} - Вставить перевод из текущего файла
+;     \%{...}          - Экранирование статичной переменной
+;---------------------------
+?extend_language = en
+;---------------------------
+data:web.fullname = МобайлКуб
+data:web.name     = МКО
+;---------------------------
+data:page.online  = Онлайн
+data:page.total   = Регистраций
+data:page.forum   = Форум
+data:page.chat    = Чат
+data:page.news    = Новости
+data:page.2dworld = Играть в 2D-Мир
+;---------------------------
+data:head.title = %{data:web.fullname} %{data:page.online}
+;---------------------------
+data:game.my_hungry        = У вас %[hungry] ед.сытости
+data:game.daily_gift       = Ежедневный бонус
+data:game.up_level         = Поздравляем, вы получили %[level] уровень
+data:game.reward           = Награда: %[gift]
+data:game.new_mail         = Вам новое сообщение ( %[count] )
+data:game.new_support      = Ответ от службы поддержки ( %[count] )
+data:game.player           = Игрок
+data:game.player_not_found = %{data:game.player} не найден
+data:game.union            = Клуб
+data:game.union_not_found  = %{data:game.union} не найден
+data:game.message          = Сообщение
+;------- Date format -------
+; time_left_dhms = (day)/(hour)/(minute)/(secound) где '/' разделение данных
+; time_format:
+;     dd   - день месяца (01-31)
+;     MM   - месяц (01-12)
+;     yyyy - год (1970-9999)
+;     HH   - часы (00 - 23)
+;     mm   - минуты (00 - 59)
+;     ss   - секунды (00 - 59)
+;---------------------------
+data:game.time_left_dhms   = д./ч./м./с.
+data:game.time_format_date = dd.MM.yyyy
+data:game.time_format_time = HH:mm:ss
+data:game.time_format_full = %{data:game.time_format_date} - %{data:game.time_format_time}
+;---
+data:word.per    = За
+data:word.you    = Вы
+data:word.rating = Рейтинг
+data:word.add    = Добавить
+data:word.search = Найти
+;---
+data:word.money        = Монета
+data:word.money^d      = Монету
+data:word.money^s      = Монеты
+data:word.money^s^more = Монет
+;---
+data:word.ruby        = Рубин
+data:word.ruby^s      = Рубина
+data:word.ruby^s^more = Рубинов
+;---
+data:word.emerald        = Изумруд
+data:word.emerald^s      = Изумруда
+data:word.emerald^s^more = Изумрудов
+;---------------------------
+data:foot.my_blocks         = Блоки
+data:foot.potions           = Зельеварение
+data:foot.arena             = Арена
+data:foot.fishing           = Рыбалка
+data:foot.mine              = Шахта
+data:foot.walk              = Прогулка
+data:foot.tasks             = Задания
+data:foot.best_players      = Лучшие
+data:foot.inventory         = Инвентарь
+data:foot.buy_mcocoins      = Купить рублики
+data:foot.shop              = Магазин
+data:foot.menu              = Меню
+data:foot.profile           = Профиль
+data:foot.unions            = %{data:game.union}
+data:foot.main              = Главная
+data:foot.login             = Авторизация
+data:foot.settings          = Настройки
+data:foot.support           = Служба поддержки
+data:foot.back              = Назад
+data:foot.back_to           = %{data:foot.back}
+data:foot.back_to_profile   = %{data:foot.back_to} в профиль
+data:foot.back_to_chat      = %{data:foot.back_to} в чат
+data:foot.back_to_forum     = %{data:foot.back_to} на форум
+data:foot.back_to_topic     = %{data:foot.back_to} в топик
+data:foot.back_to_inventory = %{data:foot.back_to} в инвентарь
+data:foot.back_to_shop      = %{data:foot.back_to} в магазин
+data:foot.bot               = бот
+data:foot.bad_words         = Анти-спам
+data:foot.support_tickets   = Тикеты
+data:foot.special_offer     = Акция
+data:foot.quiz              = Викторина
+data:foot.other_games       = Другие игры
+data:foot.speed_of_code     = сек
+;---------------------------
+data:moderation.ban.title            = Бан/Блокировка игрока
+data:moderation.ban.bad_time         = Введено некорректное время бана
+data:moderation.ban.reason_too_long  = Слишком длинная причина
+data:moderation.ban.reason_too_short = Слишком короткая причина
+data:moderation.ban.already_banned   = Игрок уже забанен/заблокирован
+data:moderation.ban.success          = Игрок успешно забанен/заблокирован
+data:moderation.ban.time_of_ban      = Время бана в часах (Форум и чат)
+data:moderation.ban.reason_of_ban    = Причина бана
+data:moderation.ban.submit           = Забанить
+data:moderation.ban.high_permission  = Игрок имеет права выше ваших. Также нельзя забанить самого себя
+;---------------------------
+debug:ssl.title               = Информация шифрования
+debug:ssl.encrypted_layer     = Шифрование с сайтом
+debug:ssl.cipher_type         = Используемый тип шифра
+debug:ssl.cipher_bits         = Размер шифра (бит)
+debug:ssl.ssl_version         = Версия протокола
+debug:ssl.sni                 = Имя сервера (SNI)
+debug:ssl.client_info         = Информация клиента (браузера)
+debug:ssl.client_allow_cipher = Поддерживаемые шифры
+debug:ssl.not_use             = Это не https протокол
+;---------------------------
+debug:gcc.title            = GCC информация компиляции
+debug:gcc.date_compilation = Дата сборки сайта
+;---------------------------
+error:error.title   = Ошибка
+error:warning.title = Внимание
+error:fatal_error   = К сожалению, что-то пошло не так, повторите попытку позже
+;---------------------------
+animals:title                     = Мои животные
+animals:open_level                = Будет доступно с %[level] уровня
+animals:horse.name                = Лошадь
+animals:horse.buy                 = Купить лошадь за %[resource]
+animals:horse.buy_description     = После покупки, вам добавится способность для арены, а также +%[amylet]
+animals:horse.upgrade             = Улучшить лошадь за %[resource]
+animals:horse.upgrade_description = Каждое улучшение добавляет +%[damage] урона, +%[health] жизней и +%[amylet]
+animals:horse.eggs.eat            = Вы съели свою лошадь!
+animals:horse.eggs.eat_quest      = Вы точно хотите съесть свою лошадь? Вы получите %[hungry] едениц к насыщению
+animals:horse.eggs.eat_confirm    = Подтвердить
+animals:horse.eggs.eat_cancel     = Отменить
+animals:horse.eggs.eated          = Вы съели свою лошадь. Теперь у вас нет лошади
+animals:horse.eggs.to_eat         = Съесть
+animals:horse.damage              = Урон лошади
+animals:horse.health              = Жизни лошади
+animals:horse.upgrade_is_full     = Лошадь полностью улучшена
+;---------------------------
+arena:mobs_0  = Тренировочный житель
+arena:mobs_1  = Обычный паук
+arena:mobs_2  = Пещерный паук
+arena:mobs_3  = Тарантул
+arena:mobs_4  = Король пауков
+arena:mobs_5  = Маленький зомби
+arena:mobs_6  = Средний зомби
+arena:mobs_7  = Большой зомби
+arena:mobs_8  = Зомби Гигант
+arena:mobs_9  = Маленький скелет
+arena:mobs_10 = Средний скелет
+arena:mobs_11 = Большой скелет
+arena:mobs_12 = Король скелетов
+arena:mobs_13 = Маленький свинозомби
+arena:mobs_14 = Средний свинозомби
+arena:mobs_15 = Большой свинозомби
+arena:mobs_16 = Король свинозомби
+arena:mobs_17 = Маленькая чешуйница
+arena:mobs_18 = Средняя чешуйница
+arena:mobs_19 = Большая чешуйница
+arena:mobs_20 = Король чешуйниц
+arena:mobs_21 = Маленькая ведьма
+arena:mobs_22 = Средняя ведьма
+arena:mobs_23 = Большая ведьма
+arena:mobs_24 = Король ведьм
+arena:mobs_25 = Маленький кролик
+arena:mobs_26 = Средний кролик
+arena:mobs_27 = Большой кролик
+arena:mobs_28 = Король кроликов
+arena:mobs_29 = Маленький гаст
+arena:mobs_30 = Средний гаст
+arena:mobs_31 = Большой гаст
+arena:mobs_32 = Король гастов
+arena:mobs_33 = Коронавирус
+arena:mobs_34 = Дикий волк
+arena:mobs_35 = Бешеный кролик
+arena:mobs_36 = Житель-боец
+arena:mobs_37 = БОСС
+;---
+arena:data.negative_maxhealth       = Значение 'max_health' не может быть ниже еденицы
+arena:data.over_maxhealth           = Значение 'max_health' не может быть больше 32767
+arena:data.negative_armor           = Значение 'armor' не может быть меньше нуля
+arena:data.bad_armor                = ID 'armor' не найден
+arena:data.negative_increase_damage = Значение 'increase_damage' не может быть отрицательным
+arena:data.over_increase_damage     = Значение 'increase_damage' не может быть больше 32767
+arena:data.negative_healing         = Значение 'healing' не может быть отрицательным
+arena:data.over_healing             = Значение 'healing' не может быть больше 32767
+arena:data.negative_damage          = Значение 'damage' не может быть ниже еденицы
+arena:data.over_damage              = Значение 'damage' не может быть больше 32767
+arena:data.negative_health          = Значение 'health' не может быть отрицательным
+arena:data.over_health              = Значение 'health' не может быть больше 32767
+arena:data.health_great_maxhealth   = Значение 'health' не может быть больше значения 'maxHealth'
+arena:data.entity_is_empty          = Враг отсутствует, невозможно нанести урон
+arena:data.healing_was_use          = Исцеление уже использовалось
+arena:player.is_hungry_title        = Вы голодны
+arena:player.is_hungry              = Вы не можете сейчас сражаться, так как голодны
+arena:player.cooldown               = Подождите перед началом следующего боя
+arena:player.empty_target           = Не удалось найти игрока по вашему рейтингу
+arena:player.bad_target             = Не удалось получить данные соперника, попробуйте позже
+arena:player.empty_entity           = Противник не найден, возможно бой был завершён ранее
+arena:dev.title                     = Создание своего босса | DEV
+arena:dev.description               = Создай своего босса и сразись с ним
+arena:dev.entity_success_created    = Враг создан
+arena:dev.name_of_entity            = Имя врага
+arena:dev.health_of_entity          = Жизни врага
+arena:dev.damage_of_entity          = Урон врага
+arena:dev.armor_of_entity           = Броня врага
+arena:dev.increase_damage_of_entity = Критический урон врага
+arena:dev.healing_of_entity         = Исцеление врага
+arena:dev.create_entity             = Создать врага
+arena:word.to_battle                = В бой
+arena:word.win                      = ПОБЕДА
+arena:word.win_player.description   = Вы победили игрока (+%[rating] к рейтингу)
+arena:word.win_entity.description   = Вы победили монстра
+arena:word.health                   = Жизни
+arena:word.damage                   = Сила
+arena:word.armor                    = Броня
+arena:word.healing                  = Исцеление
+arena:word.increase_damage          = Крит.урон
+arena:word.go_damage                = Бить
+arena:word.go_increase_damage       = Критический урон
+arena:word.go_healing               = Вылечиться
+arena:word.go_attack                = Напасть
+arena:word.go_attack_online         = Напасть против игроков
+arena:word.go_attack_dev            = Создать своего босса
+arena:word.loss                     = Поражение
+arena:word.loss_player.description  = Вы проиграли (-%[rating] от рейтинга)
+arena:word.loss_entity.description  = Вы проиграли
+arena:word.entity                   = Моб
+arena:online.title                  = Онлайн бой
+arena:single.title                  = Бой с монстрами
+arena:animals.info                  = %[entity] добавляет %[damage] к урону
+arena:history.title                 = Список онлайн атак
+arena:history.my_attacks            = Мои атаки
+arena:history.enemy_attacks         = Чужие атаки
+arena:history.empty                 = История пуста
+arena:history.time_of_attack        = Время боя
+arena:history.date_of_attack        = Дата нападения
+arena:training.title                = Улучшение возможностей
+arena:training.player_attacking     = Вы не можете улучшать статы, пока вы не закончите текущий бой
+arena:training.up_damage_success    = Сила была улучшена
+arena:training.up_health_success    = Здоровье было улучшено
+arena:training.up_healing_success   = Исцеление было улучшено
+arena:training.up_incdamage_success = Критический урон был улучшен
+arena:training.up_damage            = к силе за
+arena:training.up_health            = к жизни за
+arena:training.up_healing           = к исцелению за
+arena:training.up_incdamage         = к крит.урону за
+arena:training.healing_open         = Будет доступно после убийства &quot;Короля скелетов&quot;
+arena:training.incdamage_open       = Будет доступно после убийства &quot;Короля свинозомби%quot;
+arena:training.deny_training        = Недоступно
+arena:training.info                 = Каждая прокачка добавляет +%[amylet]
+arena:league                        = Статус
+arena:league_1                      = Мертвец
+arena:league_2                      = Новичок
+arena:league_3                      = Боец
+arena:league_4                      = Охотник
+arena:league_5                      = Воин
+arena:league_6                      = Спецназ
+arena:league_7                      = Неубиваемый
+arena:league_8                      = ПРАВИТЕЛЬ
+;---------------------------
+auth:login.fail            = Неверный ник или пароль
+auth:login.length_of_nick  = Ник должен быть от 3х до 16-ти символов
+auth:login.length_of_pass  = Пароль должен быть от 3х до 32-х символов
+auth:login.banned          = Ваш аккаунт заблокирован по причине: "%[reason]", осталось %[time] до окончания блокировки
+auth:page.already_login    = Вы уже вошли в аккаунт
+auth:page.title            = Авторизация
+auth:page.description      = Привет, ты в мире %{data:web.fullname}, добывай блоки, крафть инструменты, готовь зелья, общайся и всё остальное ждёт тебя тут!!!
+auth:page.start_game       = Начать игру
+auth:form.nick             = Ник
+auth:form.nick.placeholder = Ник...
+auth:form.pass             = Пароль
+auth:form.pass.placeholder = Пароль...
+auth:form.submit           = Войти
+;---------------------------
+armor:helmet.name     = Шлем
+armor:chestplate.name = Нагрудник
+armor:leggings.name   = Поножи
+armor:boots.name      = Ботинки
+;---------------------------
+fishing:goto_arena = На рыбалке вас встретил босс!
+;---------------------------
+inventory:item_not_added = Предмет не был добавлен в инвентарь
+;------- Название материалов инвентаря -------
+inventory:material.air        = Воздух
+inventory:material.air^s      = Воздуха
+inventory:material.air^s^more = Воздухов
+;---
+inventory:material.stone        = Камень
+inventory:material.stone^s      = Камня
+inventory:material.stone^s^more = Камней
+;---
+inventory:material.grass        = Трава
+inventory:material.grass^s      = Травы
+inventory:material.grass^s^more = Трав
+;---
+inventory:material.stonebrick        = Каменный кирпич
+inventory:material.stonebrick^s      = Каменного кирпича
+inventory:material.stonebrick^s^more = Каменных кирпичей
+;---
+inventory:material.log_oak        = Дубовое бревно
+inventory:material.log_oak^s      = Дубовых бревна
+inventory:material.log_oak^s^more = Дубовых брёвен
+;---
+inventory:material.planks_oak        = Дубовая доска
+inventory:material.planks_oak^s      = Дубовых доски
+inventory:material.planks_oak^s^more = Дубовых досок
+;---
+inventory:material.cobblestone        = Булыжник
+inventory:material.cobblestone^s      = Булыжника
+inventory:material.cobblestone^s^more = Булыжников
+;---
+inventory:material.furnace        = Печка
+inventory:material.furnace^s      = Печки
+inventory:material.furnace^s^more = Печек
+;---
+inventory:material.dirt   = Грязь
+inventory:material.dirt^s = Грязи
+;---
+inventory:material.crafting        = Верстак
+inventory:material.crafting^s      = Верстака
+inventory:material.crafting^s^more = Верстаков
+;---
+inventory:material.sand   = Песок
+inventory:material.sand^s = Песка
+;---
+inventory:material.gravel   = Гравий
+inventory:material.gravel^s = Гравия
+;---
+inventory:material.stone_andesite   = Андезит
+inventory:material.stone_andesite^s = Андезита
+;---
+inventory:material.gold_ore   = Золотая руда
+inventory:material.gold_ore^s = Золотых руды
+;---
+inventory:material.iron_ore   = Железная руда
+inventory:material.iron_ore^s = Железной руды
+;---
+inventory:material.iron_block        = Железный блок
+inventory:material.iron_block^s      = Железных блока
+inventory:material.iron_block^s^more = Железных блоков
+;---
+inventory:material.coal_block        = Угольный блок
+inventory:material.coal_block^s      = Угольных блока
+inventory:material.coal_block^s^more = Угольных блоков
+;---
+inventory:material.chest        = Сундук
+inventory:material.chest^s      = Сундука
+inventory:material.chest^s^more = Сундуков
+;---
+inventory:material.granite   = Гранит
+inventory:material.granite^s = Гранита
+;---
+inventory:material.diorite   = Диорит
+inventory:material.diorite^s = Диорита
+;----- Прозрачные блоки -----
+inventory:material.ladder        = Лестница
+inventory:material.ladder^s      = Лестницы
+inventory:material.ladder^s^more = Лестниц
+;---
+inventory:material.torch        = Факел
+inventory:material.torch^s      = Факела
+inventory:material.torch^s^more = Факелов
+;---
+inventory:material.glass        = Стекло
+inventory:material.glass^s      = Стекла
+inventory:material.glass^s^more = Стёкол
+;---
+inventory:material.anvil        = Наковальня
+inventory:material.anvil^s      = Наковальни
+;----- Предметы -----
+inventory:material.stick        = Палка
+inventory:material.stick^s      = Палки
+inventory:material.stick^s^more = Палок
+;---
+inventory:material.wood_pickaxe        = Деревянная кирка
+inventory:material.wood_pickaxe^s      = Деревянные кирки
+inventory:material.wood_pickaxe^s^more = Деревянных кирок
+;---
+inventory:material.stone_pickaxe        = Каменная кирка
+inventory:material.stone_pickaxe^s      = Каменные кирки
+inventory:material.stone_pickaxe^s^more = Каменных кирок
+;---
+inventory:material.wood_axe        = Деревянный топор
+inventory:material.wood_axe^s      = Деревянных топора
+inventory:material.wood_axe^s^more = Деревянных топоров
+;---
+inventory:material.stone_axe        = Каменный топор
+inventory:material.stone_axe^s      = Каменных топора
+inventory:material.stone_axe^s^more = Каменных топоров
+;---
+inventory:material.wood_shovel        = Деревянная лопата
+inventory:material.wood_shovel^s      = Деревянные лопаты
+inventory:material.wood_shovel^s^more = Деревянных лопат
+;---
+inventory:material.stone_shovel        = Каменная лопата
+inventory:material.stone_shovel^s      = Каменные лопаты
+inventory:material.stone_shovel^s^more = Каменных лопат
+;---
+inventory:material.blaze_powder        = Огненная пыль
+inventory:material.blaze_powder^s      = Огненные пыли
+inventory:material.blaze_powder^s^more = Огненной пыли
+;---
+inventory:material.charcoal        = Древесный уголь
+inventory:material.charcoal^s      = Древесных угля
+inventory:material.charcoal^s^more = Древесных углей
+;---
+inventory:material.flint        = Кремень
+inventory:material.flint^s      = Кремня
+inventory:material.flint^s^more = Кремней
+;---
+inventory:material.apple        = Яблоко
+inventory:material.apple^s      = Яблока
+inventory:material.apple^s^more = Яблок
+;---
+inventory:material.coal        = Уголь
+inventory:material.coal^s      = Угля
+;---
+inventory:material.iron_ingot        = Железный слиток
+inventory:material.iron_ingot^s      = Железных слитка
+inventory:material.iron_ingot^s^more = Железных слитков
+;---
+inventory:material.gold_ingot        = Золотой слиток
+inventory:material.gold_ingot^s      = Золотых слитка
+inventory:material.gold_ingot^s^more = Золотых слитков
+;---
+inventory:material.diamond        = Алмаз
+inventory:material.diamond^s      = Алмаза
+inventory:material.diamond^s^more = Алмазов
+;---
+inventory:material.dye_powder_blue        = Лазурит
+inventory:material.dye_powder_blue^s      = Лазурита
+inventory:material.dye_powder_blue^s^more = Лазуритов
+;---
+inventory:material.bone        = Кость
+inventory:material.bone^s      = Кости
+inventory:material.bone^s^more = Костей
+;---
+inventory:material.rotten_flesh        = Гнилая плоть
+inventory:material.rotten_flesh^s      = Гнилой плоти
+inventory:material.rotten_flesh^s^more = Гнилых плоти
+;---
+inventory:material.bucket_empty        = Пустое ведро
+inventory:material.bucket_empty^s      = Пустых ведра
+inventory:material.bucket_empty^s^more = Пустых вёдер
+;---
+inventory:material.bucket_water        = Водро веды
+inventory:material.bucket_water^s      = Водра веды
+inventory:material.bucket_water^s^more = Водров веды
+;---
+inventory:material.iron_door        = Железная дверь
+inventory:material.iron_door^s      = Железных двери
+inventory:material.iron_door^s^more = Железных дверей
+;---
+inventory:material.iron_pickaxe        = Железная кирка
+inventory:material.iron_pickaxe^s      = Железных кирки
+inventory:material.iron_pickaxe^s^more = Железных кирок
+;---
+inventory:material.iron_axe        = Железный топор
+inventory:material.iron_axe^s      = Железных топора
+inventory:material.iron_axe^s^more = Железных топоров
+;---
+inventory:material.iron_shovel        = Железная лопата
+inventory:material.iron_shovel^s      = Железные лопаты
+inventory:material.iron_shovel^s^more = Железных лопат
+;---
+inventory:material.oak_door        = Дубовая дверь
+inventory:material.oak_door^s      = Дубовых двери
+inventory:material.oak_door^s^more = Дубовых дверей
+;---
+inventory:material.fish_clownfish_raw        = Сырая рыба-клоун
+inventory:material.fish_clownfish_raw^s      = Сырые рыбы-клоун
+inventory:material.fish_clownfish_raw^s^more = Сырых рыбы-клоун
+;---
+inventory:material.fish_cod_raw        = Сырая треска
+inventory:material.fish_cod_raw^s      = Сырые трески
+inventory:material.fish_cod_raw^s^more = Сырых трески
+;---
+inventory:material.fish_pufferfish_raw        = Рыба-Фугу
+inventory:material.fish_pufferfish_raw^s      = Рыбы-Фуги
+inventory:material.fish_pufferfish_raw^s^more = Рыб-Фугу
+;---
+inventory:material.fish_raw        = Сырая рыба
+inventory:material.fish_raw^s      = Сырые рыбы
+inventory:material.fish_raw^s^more = Сырых рыб
+;---
+inventory:material.fish_salmon_raw        = Сырая лосось
+inventory:material.fish_salmon_raw^s      = Сырые лососи
+inventory:material.fish_salmon_raw^s^more = Сырых лососей
+;---
+inventory:material.fish_cod_cooked        = Приготовленная треска
+inventory:material.fish_cod_cooked^s      = Приготовленные трески
+inventory:material.fish_cod_cooked^s^more = Приготовленных трески
+;---
+inventory:material.fish_cooked        = Приготовленная рыба
+inventory:material.fish_cooked^s      = Приготовленные рыбы
+inventory:material.fish_cooked^s^more = Приготовленных рыб
+;---
+inventory:material.fish_salmon_cooked        = Приготовленная лосось
+inventory:material.fish_salmon_cooked^s      = Приготовленные лососи
+inventory:material.fish_salmon_cooked^s^more = Приготовленных лососей
+;---------------------------------------------
+inventory:education_0 = \
+	Приветствую, готов научиться пользоваться инвентарём и крафтом? \
+	Если да, для начала возьми мной подаренный тебе камень в руку, для этого нажми на него
+inventory:education_1 = \
+	Молодец, ты взял в руку предмет, теперь нажми на него! \
+	Он показан в углу, это нужно чтобы положить его обратно в инвентарь
+inventory:education_2 = \
+	Ты положил предмет снова в инвентарь, умница, и с этим справился! Опять возьми в руку камень ;)
+inventory:education_3 = \
+	Молодец, видишь сбоку несколько ячеек, это нужно, чтобы создавать новые предметы. \
+	Когда ты взял в руку предмет, ты можешь перенести его туда. Нажми на самую нижнюю ячейку в правом углу
+inventory:education_4 = \
+	Теперь заполни все ячейки камнем, и тогда ты увидишь получившийся предмет, \
+	нажми на него и он перенесётся в инвентарь. Я надеюсь, ты справишься!
+inventory:education_5 = \
+	Поздравляю! Ты справился, надеюсь, это было не сложно :). \
+	Держи ещё 4 камня в подарок - можешь их тоже обработать :), желаю удачи в дальнейшем развитии! \
+	Подробнее про крафты ты можешь посмотреть на форуме, а теперь возвращайся на главную
+;---------------------------
+inventory:craftable.title = Список крафтов игры
+;----- Новая конвертация (с 2022 года) -----
+inventory:conv.title               = Только для тестировщиков
+inventory:conv.description         = Доступна конвертация на новую структуру хранения инвентаря, данный функционал находится на стадии тестирования и может работать некорректно
+inventory:conv.conv_button         = Конвертировать
+inventory:conv.success.title       = Конвертация успешна
+inventory:conv.success.description = Инвентарь переконвертирован под новый тип данных, удачи в тестировании!
+;----- Старая конвертация (с 2017 года) -----
+inventory:conv_old.title       = Конвертация инвентаря
+inventory:conv_old.description = Вы используете старый тип данных для работы инвентаря, конвертируйте данные для работы нового инвентаря
+inventory:conv_old.conv_button = Конвертировать
+;---
+inventory:title        = Инвентарь
+inventory:title_player = Инвентарь игрока &quot;%[player]&quot;
+inventory:bad_data     = Данные повреждены, обратитесь в службу поддержки
+;---
+inventory:invslot.left_hand    = В левой руке у вас %[material]
+inventory:invslot.right_hand   = В правой руке у вас %[material]
+inventory:invslot.hand_empty   = Данный слот пуст, также нельзя переместить предмет в данный слот, так как в вашей руке отсутствует выбранный предмет
+inventory:invslot.move_to_slot = Вы перенесли предмет из руки в свободный слот
+inventory:invslot.move_to_hand = Выбранный предмет был перенесён в руку
+inventory:invslot.count_less   = Количество предмета должно быть больше количества переносимого
+inventory:invslot.slot_info    = Количество %[material]: %[count]
+;---
+inventory:invslot_old.move_to_hand         = Вы взяли предмет в руку
+inventory:invslot_old.move_to_slot         = Предмет из руки перенесён в инвентарь
+inventory:invslot_old.hand_not_empty       = Вы уже взяли определённый предмет, нельзя взять несколько!
+inventory:invslot_old.slot_empty           = Такого предмета нет в инвентаре
+inventory:invslot_old.hand_empty           = В руке ничего нет
+inventory:invslot_old.item_use             = Предмет теперь используется
+inventory:invslot_old.item_move_to_hand    = Используемый предмет перенесён в руку
+inventory:invslot_old.item_move_failed     = В руке уже есть вещь, нельзя завершить использование этого предмета
+inventory:invslot_old.furnace_working_back = Нельзя выйти из печки, пока в ней используется топливо
+;---
+inventory:crafting_old.move_to_slot        = Предмет из руки перенесён в верстак
+inventory:crafting_old.move_to_hand        = Вы забрали предмет из верстака
+inventory:crafting_old.move_to_hand_failed = Невозможно забрать предмет из верстака, пока вы держите определённый предмет
+inventory:crafting_old.move_to_slot_failed = Невозможно положить пустой предмет
+inventory:crafting_old.repeat_craft_empty  = Последний крафт отсутствует
+inventory:crafting_old.repeat_craft_failed = Не хватает предметов для крафта
+inventory:crafting_old.success             = Вы забрали готовый предмет
+inventory:crafting_old.unsuccess           = Неверный рецепт крафта, либо вы уже забрали предмет
+inventory:crafting_old.repeat_button       = Выполнить
+inventory:crafting_old.repeat_name         = последний крафт
+inventory:crafting_old.repeat_count        = количество
+;---
+inventory:furnace_old.move_to_hand_failed = Невозможно забрать используемое топливо из печи
+;---
+inventory:info.ate_food   = Вы съели еду и получили %[hungry] ед. голода
+inventory:info.eat_food   = Вы держите еду в руке, вы можете её съесть, вы получите %[hungry] ед. голода
+inventory:info.eat_button = Съесть
+;---
+inventory:myblock.speedy = Выберите предмет которым хотите ускорить добычу блока
+;---
+inventory:data.enchange.null         = Предмет не имеет чар
+inventory:data.enchange.empty        = У данного предмета отсутствуют чары
+inventory:data.enchange.failed       = Невозможно получить чары этого вредмета
+inventory:data.slot.undefined        = Данный слот не существует в инвентаре
+inventory:data.slot.not_empty        = Данный слот уже занят
+inventory:data.slot.add_bad_material = Невозможно добавить несуществующий предмет в инвентарь
+inventory:data.slot.sub_bad_material = Невозможно забрать несуществующий предмет из инвентаря
+inventory:data.slot.add_too_many     = Попытка добавить слишком много предмета
+inventory:data.slot.add_air          = Невозможно добавить несуществующий предмет
+inventory:data.slot.sub_air          = Невозможно забрать несуществующий предмет
+inventory:data.slot.sub_unsuccess    = Не хватает предмета
+inventory:data.bad_frame             = Превышен размер фрейма, слишком большие данные
+inventory:data.bad_data              = Невозможно получить данные инвентаря
+inventory:data.bad_data_corrupted    = Данные инвентаря повреждены
+inventory:data.inventory_is_full     = Инвентарь переполнен, предмет не был добавлен
+inventory:data.material_empty        = Данного предмета нет в инвентаре
+
+inventory:craftable.is_full         = Нельзя установить %[craftable], количество свободных слотов занято
+inventory:craftable.bad_item        = Этот предмет нельзя установить
+inventory:craftable.success_sets    = %[craftable] успешно установлен
+inventory:craftable.success_break   = %[craftable] был возвращён в инвентарь
+inventory:craftable.break_has_items = Нельзя вернуть %[craftable], пока в нём есть занятые слоты
+;---------------------------
+best:search.player     = Поиск игрока
+best:search.union      = Поиск клуба
+best:search.form.nick  = Введите ник игрока
+best:search.form.union = Введите название клуба
+;---------------------------
+eatery:title            = Закусочная
+eatery:description      = Для покупки еды нажмите на картинку выбранной вами еды
+eatery:table.type       = Тип еды
+eatery:table.saturation = Ед.голода
+eatery:table.cost       = Стоимость
+eatery:table.type_money = Валюта
+eatery:not_hungry       = Вы не голодны!
+eatery:buy_success      = Вы поели, и получили %[hungry] ед. голода
+;---------------------------
+armor:helmet.empty     = Без шлема
+armor:helmet.leather   = Кожанный шлем
+armor:helmet.gold      = Золотой шлем
+armor:helmet.chainmail = Кольчужный шлем
+armor:helmet.iron      = Железный шлем
+armor:helmet.diamond   = Алмазный шлем
+armor:helmet.obsidian  = Обсидиановый шлем
+armor:helmet.bedrock   = Бедроковый шлем
+armor:helmet.turtle    = Черепаший шлем
+armor:helmet.netherite = Незеритовый шлем
+;---
+armor:chestplate.empty     = Без нагрудника
+armor:chestplate.leather   = Кожанный нагрудник
+armor:chestplate.gold      = Золотой нагрудник
+armor:chestplate.chainmail = Кольчужный нагрудник
+armor:chestplate.iron      = Железный нагрудник
+armor:chestplate.diamond   = Алмазный нагрудник
+armor:chestplate.obsidian  = Обсидиановый нагрудник
+armor:chestplate.bedrock   = Бедроковый нагрудник
+armor:chestplate.netherite = Незеритовый нагрудник
+;---
+armor:leggings.empty     = Без поножей
+armor:leggings.leather   = Кожанные поножи
+armor:leggings.gold      = Золотые поножи
+armor:leggings.chainmail = Кольчужные поножи
+armor:leggings.iron      = Железные поножи
+armor:leggings.diamond   = Алмазные поножи
+armor:leggings.obsidian  = Обсидиановые поножи
+armor:leggings.bedrock   = Бедроковые поножи
+armor:leggings.netherite = Незеритовые поножи
+;---
+armor:boots.empty     = Без ботинок
+armor:boots.leather   = Кожанные ботинки
+armor:boots.gold      = Золотые ботинки
+armor:boots.chainmail = Кольчужные ботинки
+armor:boots.iron      = Железные ботинки
+armor:boots.diamond   = Алмазные ботинки
+armor:boots.obsidian  = Обсидиановые ботинки
+armor:boots.bedrock   = Бедроковые ботинки
+armor:boots.netherite = Незеритовые ботинки
+;---
+armor:buy.title          = Покупка брони
+armor:buy.success        = Вы купили &quot;%[armor]&quot;
+armor:buy.info.amylet    = Амулет +%[amylet]
+armor:buy.info.protect   = Защита +%[protect]
+armor:buy.info.to_buy    = Купить за
+armor:change.title       = Переодевание брони
+armor:change.success     = Вы переоделись
+armor:change.description = Смена брони никак не влияет на амулет или защиту
+armor:change.button      = Переодеть
+armor:upgrade.success    = Вы улучшили &quot;%[armor]&quot;
+armor:upgrade.full       = Броня улучшена до максимума
+;------------- /menu --------------
+menu:title           = Меню игры
+menu:button.mco2d    = 2D Майнкрафт
+menu:button.exchange = Обмен ресурсов
+menu:button.resource = Дополнения к MCO.MOBI
+menu:button.zags     = Загс
+;------------ /mco2d -------------
+mco2d:title                = Браузерный Mobile Cube 2D
+mco2d:description          = 2D Кубическая браузерная игра, для рисования артов и ваших развлечений во время скуки
+mco2d:noscript.description = Похоже что в вашем браузере выключен JavaScript
+mco2d:noscript.button      = Как включить?

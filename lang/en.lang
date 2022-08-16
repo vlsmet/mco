@@ -1,0 +1,627 @@
+;---------------------------
+; Variable syntax: ?[variable] = value
+;     extend_language = (parent language, if code of language is not found)
+; Language code syntax: [namespace:][datacode[.second block[.third block.[...]]]] = text of translate
+; Text of translate syntax:
+;     \       - escape char               | translate text and code translate
+;     \xFF    - paste hex char (UTF-8)    | translate text and code translate
+;     %[any]  - dinamic variable          | only translate text
+;     %{any}  - static variable           | only translate text
+;     ^suffix - suffix for optional key   | only code translate
+; Dynamic variable: (new)
+;     %[variable] - paste local variable
+;     \\%[...]    - escape dynamic variable
+; Static variable:
+;     %{language code} - paste translate from language code
+;     \%{...}          - escape static variable
+;---------------------------
+data:web.fullname = MobileCube
+data:web.name     = MCO
+;---------------------------
+data:page.online  = Online
+data:page.total   = Total
+data:page.forum   = Forum
+data:page.chat    = Chat
+data:page.news    = News
+data:page.2dworld = Singleplay 2D-World
+;---------------------------
+data:head.title = %{data:web.fullname} %{data:page.online}
+;---------------------------
+data:game.my_hungry        = You have %[hungry] hunger points
+data:game.daily_gift       = Daily gift
+data:game.up_level         = You have received a new %[level] level
+data:game.reward           = Reward: %[gift]
+data:game.new_mail         = You have a new message ( %[count] )
+data:game.new_support      = %{data:game.new_mail} from support
+data:game.player           = Player
+data:game.player_not_found = %{data:game.player} not found
+data:game.union            = Club
+data:game.union_not_found  = %{data:game.union} not found
+data:game.message          = Message
+;------- Date format -------
+; time_left_dhms = (day)/(hour)/(minute)/(secound) where '/' is separate of data
+; time_format:
+;     dd   - day (01-31)
+;     MM   - month (01-12)
+;     yyyy - year (1970-9999)
+;     HH   - hour (00 - 23)
+;     mm   - minute (00 - 59)
+;     ss   - secound (00 - 59)
+;---------------------------
+data:game.time_left_dhms   = d./h./m./s.
+data:game.time_format_date = dd.MM.yyyy
+data:game.time_format_time = HH:mm:ss
+data:game.time_format_full = %{data:game.time_format_date} - %{data:game.time_format_time}
+;---
+data:word.per    = For
+data:word.you    = You
+data:word.rating = Rating
+data:word.add    = Add
+data:word.search = Search
+;---
+data:word.money   = Money
+data:word.money^s = Money
+;---
+data:word.ruby   = Ruby
+data:word.ruby^s = Rubies
+;---
+data:word.emerald   = Emerald
+data:word.emerald^s = Emeralds
+;---------------------------
+data:foot.my_blocks         = My blocks
+data:foot.potions           = Brew potions
+data:foot.arena             = PVP Arena
+data:foot.fishing           = Fishing
+data:foot.mine              = Mining
+data:foot.walk              = Walking
+data:foot.tasks             = Tasks
+data:foot.best_players      = Leaderboards
+data:foot.inventory         = Inventory
+data:foot.buy_mcocoins      = Buy MCOCoins
+data:foot.shop              = Shop
+data:foot.menu              = Menu
+data:foot.profile           = Profile
+data:foot.unions            = %{data:game.union}
+data:foot.main              = Main page
+data:foot.login             = Log in
+data:foot.settings          = Settings
+data:foot.support           = Support
+data:foot.back              = Back
+data:foot.back_to           = %{data:foot.back} to
+data:foot.back_to_admin     = %{data:foot.back_to} admin
+data:foot.back_to_profile   = %{data:foot.back_to} player
+data:foot.back_to_chat      = %{data:foot.back_to} chat
+data:foot.back_to_forum     = %{data:foot.back_to} forum
+data:foot.back_to_topic     = %{data:foot.back_to} topic
+data:foot.back_to_inventory = %{data:foot.back_to} inventory
+data:foot.back_to_shop      = %{data:foot.back_to} shop
+data:foot.bot               = bot
+data:foot.bad_words         = Bad-Words
+data:foot.support_tickets   = Tickets
+data:foot.special_offer     = Special offer
+data:foot.quiz              = Quiz
+data:foot.console           = Console
+data:foot.other_games       = Other games
+data:foot.speed_of_code     = sec
+;---------------------------
+data:moderation.ban.title            = Ban/Block this player
+data:moderation.ban.bad_time         = Invalid time of ban
+data:moderation.ban.reason_too_long  = Reason is too long
+data:moderation.ban.reason_too_short = Reason is too short
+data:moderation.ban.already_banned   = Player is already banned/blocked
+data:moderation.ban.success          = Player is successfully banned
+data:moderation.ban.time_of_ban      = Time of ban in hours (Forum and chat)
+data:moderation.ban.reason_of_ban    = Ban reason
+data:moderation.ban.submit           = Ban
+data:moderation.ban.high_permission  = The player has a greater permissions. It is also forbidden to ban yourself
+;---------------------------
+debug:ssl.title               = SSL Information
+debug:ssl.encrypted_layer     = Connection encryption
+debug:ssl.cipher_type         = Using type of cipher
+debug:ssl.cipher_bits         = Length bits of cipher
+debug:ssl.ssl_version         = SSL Version
+debug:ssl.sni                 = Server Name Identify (SNI)
+debug:ssl.client_info         = Information about client (browser)
+debug:ssl.client_allow_cipher = Supported encryption types
+debug:ssl.not_use             = It's not https protocol
+;---------------------------
+debug:gcc.title            = GCC compilation info
+debug:gcc.date_compilation = Date of compilation the application
+;---------------------------
+error:error.title   = Error
+error:warning.title = Warning
+error:fatal_error   = Oops, something went wrong, please try again later
+error:bad_alloc     = Server Internal: bad_alloc
+;---------------------------
+animals:title                     = My animals
+animals:open_level                = Will be unlocked at %[level] level
+animals:horse.name                = Horse
+animals:horse.buy                 = Buy a horse for %[resource]
+animals:horse.buy_description     = After the purchase, you will get new skill for the arena, as well as +% [amylet]
+animals:horse.upgrade             = Upgrade a horse for %[resource]
+animals:horse.upgrade_description = This update adds +%[damage] damage, +%[health] health and +%[amylet]
+animals:horse.eggs.eat            = You ate your horse!
+animals:horse.eggs.eat_quest      = Do you really want to eat your horse? You will get %[hungry] hunger points
+animals:horse.eggs.eat_confirm    = Yes, I want!
+animals:horse.eggs.eat_cancel     = No, I don't want
+animals:horse.eggs.eated          = You ate your horse. You don't have a horse
+animals:horse.eggs.to_eat         = Eat
+animals:horse.damage              = Damage of horse
+animals:horse.health              = Health of horse
+animals:horse.upgrade_is_full     = Your horse has been upgraded to full
+;---------------------------
+arena:mobs_0  = Training villager
+arena:mobs_1  = Spider
+arena:mobs_2  = Cave spider
+arena:mobs_3  = Tarantula
+arena:mobs_4  = King Spider
+arena:mobs_5  = Small zombie
+arena:mobs_6  = Medium zombie
+arena:mobs_7  = High zombie
+arena:mobs_8  = Giant zombie
+arena:mobs_9  = Small skeleton
+arena:mobs_10 = Medium skeleton
+arena:mobs_11 = High skeleton
+arena:mobs_12 = King skeleton
+arena:mobs_13 = Small pigzombie
+arena:mobs_14 = Medium pigzombie
+arena:mobs_15 = High pigzombie
+arena:mobs_16 = King pigzombie
+arena:mobs_17 = Small silverfish
+arena:mobs_18 = Medium silverfish
+arena:mobs_19 = High silverfish
+arena:mobs_20 = King silverfish
+arena:mobs_21 = Small witch
+arena:mobs_22 = Medium witch
+arena:mobs_23 = High witch
+arena:mobs_24 = King witch
+arena:mobs_25 = Small rabbit
+arena:mobs_26 = Medium rabbit
+arena:mobs_27 = High rabbit
+arena:mobs_28 = King rabbit
+arena:mobs_29 = Small ghast
+arena:mobs_30 = Medium ghast
+arena:mobs_31 = High ghast
+arena:mobs_32 = King ghast
+arena:mobs_33 = Covid19
+arena:mobs_34 = Wild wolf
+arena:mobs_35 = Crazy rabbit
+arena:mobs_36 = Vindicator
+arena:mobs_37 = Impossible enemy
+;---
+arena:data.negative_maxhealth       = The 'max_health' value must not be negative or zero
+arena:data.over_maxhealth           = The 'max_health' value must not be greater than 32767
+arena:data.negative_armor           = The 'armor' value must not be negative
+arena:data.bad_armor                = ID 'armor' is undefined
+arena:data.negative_increase_damage = The 'increase_damage' value must not be negative
+arena:data.over_increase_damage     = The 'increase_damage' value must not be more 32767
+arena:data.negative_healing         = The 'healing' value must not be negative
+arena:data.over_healing             = The 'healing' value must not be greater than 32767
+arena:data.negative_damage          = The 'damage' value must not be negative or zero
+arena:data.over_damage              = The 'damage' value must not be greater than 32767
+arena:data.negative_health          = The 'health' value must not be negative
+arena:data.over_health              = The 'health' value must not be greater than 32767
+arena:data.health_great_maxhealth   = The 'health' value must not be greater then 'maxHealth'
+arena:data.entity_is_empty          = Enemy missing, unable to deal damage
+arena:data.healing_was_use          = Healing has already been used
+arena:player.is_hungry_title        = You are hungry
+arena:player.is_hungry              = You can't fight right now because you're hungry.
+arena:player.cooldown               = Please, wait some time for a new fight
+arena:player.empty_target           = Can't find a player for your rating
+arena:player.bad_target             = Don't receive data of target, try again later
+arena:player.empty_entity           = Target not found, your fight may have ended early
+arena:dev.title                     = Create your enemy | DEV
+arena:dev.description               = Create your enemy and fight him
+arena:dev.entity_success_created    = Enemy successfully created
+arena:dev.name_of_entity            = Name of enemy
+arena:dev.health_of_entity          = Health of enemy
+arena:dev.damage_of_entity          = Damage of enemy
+arena:dev.armor_of_entity           = Armor of enemy
+arena:dev.increase_damage_of_entity = Critical damage of enemy
+arena:dev.healing_of_entity         = Healing of enemy
+arena:dev.create_entity             = Create the enemy
+arena:word.to_battle                = Fight
+arena:word.win                      = WIN
+arena:word.win_player.description   = You won a player (+%[rating] for rating)
+arena:word.win_entity.description   = You won an enemy
+arena:word.health                   = Health
+arena:word.damage                   = Damage
+arena:word.armor                    = Armor
+arena:word.healing                  = Healing
+arena:word.increase_damage          = Critical Damage
+arena:word.go_damage                = Attack
+arena:word.go_increase_damage       = Critical Attack
+arena:word.go_healing               = Heal
+arena:word.go_attack                = Fight
+arena:word.go_attack_online         = Fight a player
+arena:word.go_attack_dev            = Create your enemy
+arena:word.loss                     = Loss
+arena:word.loss_player.description  = You loss (-%[rating] from rating)
+arena:word.loss_entity.description  = You loss
+arena:word.entity                   = Enemy
+arena:online.title                  = Online fight
+arena:single.title                  = Attack the enemy
+arena:animals.info                  = %[entity] is adding %[damage] to damage
+arena:history.title                 = History online attacks
+arena:history.my_attacks            = My attacks
+arena:history.enemy_attacks         = Enemy attacks
+arena:history.empty                 = History is empty
+arena:history.time_of_attack        = Time
+arena:history.date_of_attack        = Date
+arena:training.title                = Upgrade skills
+arena:training.player_attacking     = You cannot upgrade skills until you finish the current fight.
+arena:training.up_damage_success    = Damage has been upgraded
+arena:training.up_health_success    = Health has been upgraded
+arena:training.up_healing_success   = Healing has been upgraded
+arena:training.up_incdamage_success = Critical damage has been upgraded
+arena:training.up_damage            = to damage for
+arena:training.up_health            = to health for
+arena:training.up_healing           = to healing for
+arena:training.up_incdamage         = to critical damage for
+arena:training.healing_open         = Will be unlocked after defeating the "King skeleton"
+arena:training.incdamage_open       = Will be unlocked after defeating the "King pigzombie"
+arena:training.deny_training        = Not available
+arena:training.info                 = Every new upgrade you got adds +%[amylet]
+arena:league                        = League
+arena:league_1                      = Empty
+arena:league_2                      = Bronze 1
+arena:league_3                      = Bronze 2
+arena:league_4                      = Bronze 3
+arena:league_5                      = Silver 1
+arena:league_6                      = Silver 2
+arena:league_7                      = Silver 3
+arena:league_8                      = GOLD
+;---------------------------
+auth:login.fail            = Wrong username or password
+auth:login.length_of_nick  = Nickname must be at least 3 letters and no more than 16 letters
+auth:login.length_of_pass  = Password must be at least 3 characters and no more than 32 characters
+auth:login.banned          = Your account has been temporarily locked out for "%[reason]", %[time] left before trying again
+auth:page.already_login    = You are already logged in
+auth:page.title            = Welcome to %{data:web.name}
+auth:page.description      = In %{data:web.fullname} we mine blocks, make equipment, brew potions, and do a lot of other cool stuff. Here will be such an interesting place for you!!!
+auth:page.start_game       = Start game
+auth:form.nick             = Nickname
+auth:form.nick.placeholder = Enter nickname...
+auth:form.pass             = Password
+auth:form.pass.placeholder = Enter password...
+auth:form.submit           = Log in
+;---------------------------
+armor:helmet.name     = Helmet
+armor:chestplate.name = Chestplate
+armor:leggings.name   = Leggings
+armor:boots.name      = Boots
+;---------------------------
+fishing:goto_arena = On fishing you met the enemy!
+;---------------------------
+inventory:item_not_added = Item was not added to inventory
+;------- Names of material from inventory -------
+inventory:material.air   = Air
+inventory:material.air^s = Airs
+;---
+inventory:material.stone   = Stone
+inventory:material.stone^s = Stones
+;---
+inventory:material.grass   = Grass Block
+inventory:material.grass^s = Grass Blocks
+;---
+inventory:material.stonebrick   = Stone Brick
+inventory:material.stonebrick^s = Stone Bricks
+;---
+inventory:material.log_oak   = Oak Log
+inventory:material.log_oak^s = Oak Logs
+;---
+inventory:material.planks_oak   = Oak Plank
+inventory:material.planks_oak^s = Oak Planks
+;---
+inventory:material.cobblestone   = Cobblestone
+inventory:material.cobblestone^s = Cobblestones
+;---
+inventory:material.furnace   = Furnace
+inventory:material.furnace^s = Furnaces
+;---
+inventory:material.dirt   = Dirt
+inventory:material.dirt^s = Dirts
+;---
+inventory:material.crafting   = Crafting table
+inventory:material.crafting^s = Crafting tables
+;---
+inventory:material.sand   = Sand
+inventory:material.sand^s = Sands
+;---
+inventory:material.gravel   = Gravel
+inventory:material.gravel^s = Gravels
+;---
+inventory:material.stone_andesite   = Andesite
+inventory:material.stone_andesite^s = Andesites
+;---
+inventory:material.gold_ore   = Gold Ore
+inventory:material.gold_ore^s = Gold Ores
+;---
+inventory:material.iron_ore   = Iron Ore
+inventory:material.iron_ore^s = Iron Ores
+;---
+inventory:material.iron_block   = Block Of Iron
+inventory:material.iron_block^s = Blocks Of Iron
+;---
+inventory:material.coal_block   = Block Of Coal
+inventory:material.coal_block^s = Blocks Of Coal
+;---
+inventory:material.chest   = Chest
+inventory:material.chest^s = Chests
+;---
+inventory:material.granite   = Granite
+inventory:material.granite^s = Granites
+;---
+inventory:material.diorite   = Diorite
+inventory:material.diorite^s = Diorites
+;----- Прозрачные блоки -----
+inventory:material.ladder   = Ladder
+inventory:material.ladder^s = Ladders
+;---
+inventory:material.torch   = Torch
+inventory:material.torch^s = Torches
+;---
+inventory:material.glass   = Glass
+inventory:material.glass^s = Glasses
+;---
+inventory:material.anvil   = Anvil
+inventory:material.anvil^s = Anvils
+;----- Предметы -----
+inventory:material.stick   = Stick
+inventory:material.stick^s = Sticks
+;---
+inventory:material.wood_pickaxe   = Wooden Pickaxe
+inventory:material.wood_pickaxe^s = Wooden Pickaxes
+;---
+inventory:material.stone_pickaxe   = Stone Pickaxe
+inventory:material.stone_pickaxe^s = Stone Pickaxes
+;---
+inventory:material.wood_axe   = Wooden Axe
+inventory:material.wood_axe^s = Wooden Axes
+;---
+inventory:material.stone_axe   = Stone Axe
+inventory:material.stone_axe^s = Stone Axes
+;---
+inventory:material.wood_shovel   = Wooden Shovel
+inventory:material.wood_shovel^s = Wooden Shovels
+;---
+inventory:material.stone_shovel   = Stone Shovel
+inventory:material.stone_shovel^s = Stone Shovels
+;---
+inventory:material.blaze_powder   = Blaze Powder
+inventory:material.blaze_powder^s = Blaze Powders
+;---
+inventory:material.charcoal   = Charcoal
+inventory:material.charcoal^s = Charcoals
+;---
+inventory:material.flint   = Flint
+inventory:material.flint^s = Flints
+;---
+inventory:material.apple   = Apple
+inventory:material.apple^s = Apples
+;---
+inventory:material.coal   = Coal
+inventory:material.coal^s = Coals
+;---
+inventory:material.iron_ingot   = Iron Ingot
+inventory:material.iron_ingot^s = Iron Ingots
+;---
+inventory:material.gold_ingot   = Gold Ingot
+inventory:material.gold_ingot^s = Gold Ingots
+;---
+inventory:material.diamond   = Diamond
+inventory:material.diamond^s = Diamonds
+;---
+inventory:material.dye_powder_blue   = Blue dye
+inventory:material.dye_powder_blue^s = Blue dyes
+;---
+inventory:material.bone   = Bone
+inventory:material.bone^s = Bones
+;---
+inventory:material.rotten_flesh   = Rotten Flesh
+inventory:material.rotten_flesh^s = Rotten Fleshes
+;---
+inventory:material.bucket_empty   = Empty Bucket
+inventory:material.bucket_empty^s = Empty Buckets
+;---
+inventory:material.bucket_water   = Water Bucket
+inventory:material.bucket_water^s = Water Buckets
+;---
+inventory:material.iron_door   = Iron Door
+inventory:material.iron_door^s = Iron Doors
+;---
+inventory:material.iron_pickaxe   = Iron Pickaxe
+inventory:material.iron_pickaxe^s = Iron Pickaxes
+;---
+inventory:material.iron_axe   = Iron Axe
+inventory:material.iron_axe^s = Iron Axes
+;---
+inventory:material.iron_shovel   = Iron Shovel
+inventory:material.iron_shovel^s = Iron Shovels
+;---
+inventory:material.oak_door   = Oak Door
+inventory:material.oak_door^s = Oak Doors
+;---
+inventory:material.fish_clownfish_raw   = Tropical Fish
+inventory:material.fish_clownfish_raw^s = Tropical Fishs
+;---
+inventory:material.fish_cod_raw   = Raw Cod
+inventory:material.fish_cod_raw^s = Raw Cods
+;---
+inventory:material.fish_pufferfish_raw   = Pufferfish
+inventory:material.fish_pufferfish_raw^s = Pufferfishes
+;---
+inventory:material.fish_raw   = Raw Fish
+inventory:material.fish_raw^s = Raw Fishes
+;---
+inventory:material.fish_salmon_raw   = Raw Salmon
+inventory:material.fish_salmon_raw^s = Raw Salmons
+;---
+inventory:material.fish_cod_cooked   = Cooked Cod
+inventory:material.fish_cod_cooked^s = Cooked Cods
+;---
+inventory:material.fish_cooked   = Cooked Fish
+inventory:material.fish_cooked^s = Cooked Fishes
+;---
+inventory:material.fish_salmon_cooked   = Cooked Salmon
+inventory:material.fish_salmon_cooked^s = Cooked Salmons
+;---------------------------------------------
+inventory:education_0 = null
+inventory:education_1 = null
+inventory:education_2 = null
+inventory:education_3 = null
+inventory:education_4 = null
+inventory:education_5 = null
+;---------------------------
+inventory:craftable.title = List of crafts the game
+;----- Новая конвертация (с 2022 года) -----
+inventory:conv.title               = Only for testing
+inventory:conv.description         = You may need to convert inventory to a new format. Warning: New functionality may not work correctly
+inventory:conv.conv_button         = Convert inventory
+inventory:conv.success.title       = Convertion is successful
+inventory:conv.success.description = Inventory was success converted to new data
+;----- Старая конвертация (с 2017 года) -----
+inventory:conv_old.title       = Convert inventory
+inventory:conv_old.description = You are using the old inventory format, convert your inventory to the new inventory format
+inventory:conv_old.conv_button = Convert inventory
+;---
+inventory:title        = Inventory
+inventory:title_player = Inventory of player &quot;%[player]&quot;
+inventory:bad_data     = Inventory data is corrupted, please contact support
+;---
+inventory:invslot.left_hand    = %[material] is in left hand
+inventory:invslot.right_hand   = %[material] is in right hand
+inventory:invslot.hand_empty   = The slot is empty, you can't replace the slot either - you don't have this item in your hands
+inventory:invslot.move_to_slot = You moved an item from your hand to an empty slot
+inventory:invslot.move_to_hand = This item has been moved to your hand
+inventory:invslot.count_less   = The number of items should not be more than what you have
+inventory:invslot.slot_info    = Count of %[material]: %[count]
+;---
+inventory:invslot_old.move_to_hand         = You took the item into your hand
+inventory:invslot_old.move_to_slot         = An item in your hand has been moved to inventory
+inventory:invslot_old.hand_not_empty       = You have already taken a certain item, you cannot take several!
+inventory:invslot_old.slot_empty           = This item was not found in your inventory
+inventory:invslot_old.hand_empty           = Your hand is empty
+inventory:invslot_old.item_use             = This item is using
+inventory:invslot_old.item_move_to_hand    = Using item moved to your hand
+inventory:invslot_old.item_move_failed     = Your hand has item, deny to finish using this item
+inventory:invslot_old.furnace_working_back = deny exit from furnace, furnace is firing
+;---
+inventory:crafting_old.move_to_slot        = The item from the hand is moved to the crafting
+inventory:crafting_old.move_to_hand        = You took the item from the crafting
+inventory:crafting_old.move_to_hand_failed = Impossible to pick up an item from a crafting while you have item on your hand
+inventory:crafting_old.move_to_slot_failed = Impossible to put an empty item
+inventory:crafting_old.repeat_craft_empty  = The last craft is empty
+inventory:crafting_old.repeat_craft_failed = Not enough items for craft
+inventory:crafting_old.success             = You took the created item
+inventory:crafting_old.unsuccess           = Incorrect craft recipe, or you have already taken the item
+inventory:crafting_old.repeat_button       = execute
+inventory:crafting_old.repeat_name         = last craft
+inventory:crafting_old.repeat_count        = count
+;---
+inventory:furnace_old.move_to_hand_failed = Unable to take fuel from the furnace
+;---
+inventory:info.ate_food   = You ate the food and got %[hungry] hunger points
+inventory:info.eat_food   = You have food in your hand. You can eat it and get %[hungry] hunger points
+inventory:info.eat_button = Eat
+;---
+inventory:myblock.speedy = Choose an item to speed up block mining
+;---
+inventory:data.enchante.null         = Item cannot be enchanted
+inventory:data.enchante.empty        = Item cannot be enchanted
+inventory:data.enchante.failed       = Impossible to get a enchante of this item
+inventory:data.slot.undefined        = This slot is null
+inventory:data.slot.not_empty        = This slot is not empty
+inventory:data.slot.add_bad_material = Can't add non-existent item to inventory
+inventory:data.slot.sub_bad_material = Can't pick up non-existent item from inventory
+inventory:data.slot.add_too_many     = Attempt to add too many items
+inventory:data.slot.add_air          = Can't add non-existent element
+inventory:data.slot.sub_air          = Can't pick up non-existent item
+inventory:data.slot.sub_unsuccess    = Not enough items
+inventory:data.bad_frame             = Frame size exceeded, too much data
+inventory:data.bad_data              = Unable to get inventory data
+inventory:data.bad_data_corrupted    = Inventory data is corrupted
+inventory:data.inventory_is_full     = Inventory full, item not added
+inventory:data.material_empty        = This item was not found in inventory
+
+inventory:craftable.is_full         = No free slots for set %[craftable]
+inventory:craftable.bad_item        = %[craftable] is not craftable
+inventory:craftable.success_sets    = %[craftable] was installed
+inventory:craftable.success_break   = %[craftable] is returned to inventory
+inventory:craftable.break_has_items = Can't return %[craftable] to inventory. It has items in slots
+inventory:craftable.open            = You opened %[craftable]
+inventory:craftable.close           = You closed %[craftable]
+;---------------------------
+;---------------------------
+eatery:title            = Eatery
+eatery:description      = To buy food, touch the image of the food you have chosen
+eatery:table.type       = Type of food
+eatery:table.saturation = Saturation
+eatery:table.cost       = Amount
+eatery:table.type_money = Currency
+eatery:not_hungry       = You are not hungry!
+eatery:buy_success      = You ate the food and got %[hungry] hunger points
+;---------------------------
+armor:helmet.empty     = No Helmet
+armor:helmet.leather   = Leather Cap
+armor:helmet.gold      = Golden Helmet
+armor:helmet.chainmail = Chain Helmet
+armor:helmet.iron      = Iron Helmet
+armor:helmet.diamond   = Diamond Helmet
+armor:helmet.obsidian  = Obsidian Helmet
+armor:helmet.bedrock   = Bedrock Helmet
+armor:helmet.turtle    = Turtle Shell
+armor:helmet.netherite = Netherite Helmet
+;---
+armor:chestplate.empty     = No Chestplate
+armor:chestplate.leather   = Leather Tunic
+armor:chestplate.gold      = Golden Chestplate
+armor:chestplate.chainmail = Chain Chestplate
+armor:chestplate.iron      = Iron Chestplate
+armor:chestplate.diamond   = Diamond Chestplate
+armor:chestplate.obsidian  = Obsidian Chestplate
+armor:chestplate.bedrock   = Bedrock Chestplate
+armor:chestplate.netherite = Netherite Chestplate
+;---
+armor:leggings.empty     = No Leggings
+armor:leggings.leather   = Leather Pants
+armor:leggings.gold      = Golden Leggings
+armor:leggings.chainmail = Chain Leggings
+armor:leggings.iron      = Iron Leggings
+armor:leggings.diamond   = Diamond Leggings
+armor:leggings.obsidian  = Obsidian Leggings
+armor:leggings.bedrock   = Bedrock Leggings
+armor:leggings.netherite = Netherite Leggings
+;---
+armor:boots.empty     = No Boots
+armor:boots.leather   = Leather Boots
+armor:boots.gold      = Golden Boots
+armor:boots.chainmail = Chain Boots
+armor:boots.iron      = Iron Boots
+armor:boots.diamond   = Diamond Boots
+armor:boots.obsidian  = Obsidian Boots
+armor:boots.bedrock   = Bedrock Boots
+armor:boots.netherite = Netherite Boots
+;---
+armor:buy.title          = Buy armor
+armor:buy.success        = You bought &quot;%[armor]&quot;
+armor:buy.info.amylet    = Amulet +%[amylet]
+armor:buy.info.protect   = Protection +%[protect]
+armor:buy.info.to_buy    = Buy for
+armor:change.title       = Change your armor
+armor:change.success     = You changed your armor
+armor:change.description = Changing armor does not affect your amulet or protection
+armor:change.button      = Change
+armor:upgrade.success    = You upgraded &quot;%[armor]&quot;
+armor:upgrade.full       = Armor has been upgraded to full
+;------------- /menu --------------
+menu:title           = Menu of the game
+menu:button.mco2d    = 2D Minecraft
+menu:button.exchange = Resource exchange
+menu:button.resource = Mods for mco.mobi
+menu:button.zags     = Marriage
+;------------ /mco2d -------------
+mco2d:title                = Mobile Cube 2D
+mco2d:description          = MCO 2D is a cube game for art drawing and fun
+mco2d:noscript.description = It seems that JavaScript is disabled in your browser
+mco2d:noscript.button      = How to enable?

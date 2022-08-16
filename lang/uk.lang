@@ -1,0 +1,247 @@
+;---------------------------
+; Синтаксис настроек: ?[variable] = значение
+;     extend_language = (Родительский язык, будет использоваться если код языка не найден)
+; Синтаксис языкового кода: [пространство:][код[.второй блок[.третий блок.[...]]]] = Перевод
+; Синтаксис текста перевода:
+;     \       - Экранирование символа     | Перевод и код перевода
+;     \xFF    - Вставить символ (UTF-8)   | Перевод и код перевода
+;     %[any]  - Динамичная переменная     | Только перевод
+;     %{any}  - Статичная переменная      | Только перевод
+;     ^suffix - Суффикс кода              | Только код перевода
+; Динамичные переменные: (new)
+;     %[variable] - Вставить локальную переменную
+;     \\%[...]             - Экранирование локальной переменной
+; Статичная переменная: (Постоянна с момента запуска программы)
+;     %{language code} - Вставить перевод из текущего файла
+;     \%{...}          - Экранирование статичной переменной
+;---------------------------
+?extend_language = ru
+;---------------------------
+data:page.total   = Реєстрацій
+data:page.news    = Новини
+data:page.2dworld = Грати в 2д світ
+;---------------------------
+data:game.daily_gift       = Щоденний бонус
+data:game.up_level         = Вітаємо, ви отримали %[level] рівень
+data:game.reward           = Нагорода
+data:game.new_mail         = Вам нове повідомлення
+data:game.new_support      = Відповідь від служби підтримки
+data:game.player           = Гравець
+data:game.player_not_found = %{data:game.player} не знайдений
+data:game.message          = Повідомлення
+data:word.you              = Ви
+data:word.add              = Додати
+;---
+data:word.money^s      = Монети
+;---
+data:word.ruby        = Рубін
+data:word.ruby^s      = Рубіна
+data:word.ruby^s^more = Рубінів
+;---
+data:word.emerald        = Смарагд
+data:word.emerald^s      = Смарагда
+data:word.emerald^s^more = Смарагдів
+;---------------------------
+data:foot.potions         = Зіллєваріння
+data:foot.fishing         = Риболовля
+data:foot.walk            = Прогулянка
+data:foot.tasks           = Завдання
+data:foot.best_players    = Найкращі
+data:foot.inventory       = Інвентарь
+data:foot.buy_mcocoins    = Купити рублики
+data:foot.shop            = Крамниця
+data:foot.profile         = Профіль
+data:foot.main            = Головна
+data:foot.login           = Авторизація
+data:foot.settings        = Налаштування
+data:foot.support         = Служба підтримки
+data:foot.back_to_profile = Повернутись в профіль
+data:foot.back_to_chat    = Повернутись в чат
+data:foot.back_to_forum   = Повернутись на форум
+data:foot.back_to_topic   = Повернутись в топік
+data:foot.support_tickets = Звернення
+data:foot.special_offer   = Акція
+data:foot.quiz            = Вікторина
+data:foot.other_games     = Інші ігри
+;---------------------------
+data:moderation.ban.title            = Бан/Блокування гравця
+data:moderation.ban.bad_time         = Некоректний час бану
+data:moderation.ban.reason_too_long  = Занадто довга причина
+data:moderation.ban.reason_too_short = Занадто коротка причина
+data:moderation.ban.already_banned   = Гравець вже заблокован/заблокован
+data:moderation.ban.success          = Бан успішно виданий
+data:moderation.ban.time_of_ban      = Час бана в годинах (форум+чат)
+data:moderation.ban.submit           = Забанити
+data:moderation.ban.high_permission  = Гравець має права вище ваших, також не можна заблокувати самого себе
+;---------------------------
+debug:ssl.title               = Інформація шифрування
+debug:ssl.encrypted_layer     = Шифрування з сайтом
+debug:ssl.cipher_type         = Використаємий тип шифра
+debug:ssl.cipher_bits         = Розмір шифра (біт)
+debug:ssl.ssl_version         = Версія протоколу
+debug:ssl.sni                 = Ім'я серверу (SNI)
+debug:ssl.client_info         = Інформація клієнта (браузера)
+debug:ssl.client_allow_cipher = Підтримуваємі шифри
+debug:ssl.not_use             = Це не https протокол
+;---------------------------
+debug:gcc.title            = Інформація компілювання
+debug:gcc.date_compilation = Дата збірки сайту
+;---------------------------
+error:error.title   = Помилка
+error:warning.title = Увага
+error:fatal_error   = Трапилась помилка, спробуйте пізніше
+;---------------------------
+animals:title                     = Мої тварини
+animals:open_level                = Буде дозволено з %[level] рівня
+animals:horse.name                = Кінь
+animals:horse.buy                 = Купівля коня
+animals:horse.buy_description     = Після купівлі, вам додасться здатність для арени, а також +%[amylet]
+animals:horse.upgrade             = Покращити коня
+animals:horse.upgrade_description = Кожне покращення додає +%[damage] урону, +%[health] життя а також +%[amylet]
+animals:horse.eggs.eat            = Ви з'їли свого коня
+animals:horse.eggs.eat_quest      = Ви точно хочете з'їсти свого коня? Ви отримаєте %[hungry] одиниць до насичення
+animals:horse.eggs.eat_confirm    = Підтвердити
+animals:horse.eggs.eat_cancel     = Відмінити
+animals:horse.eggs.eated          = Ви з'їли свого коня! У вас тепер його немає
+animals:horse.eggs.to_eat         = З'їсти
+animals:horse.damage              = Урон коня
+animals:horse.health              = Життя коня
+animals:horse.upgrade_is_full     = Кінь прокачаний повністю
+;---------------------------
+arena:mobs_0  = Тренувальний селянин
+arena:mobs_1  = Звичайний павук
+arena:mobs_2  = Печерний павук
+arena:mobs_3  = Тарантул
+arena:mobs_4  = Король павуків
+arena:mobs_5  = Маленький зомбі
+arena:mobs_6  = Середній зомбі
+arena:mobs_7  = Великий зомбі
+arena:mobs_8  = Велетень
+arena:mobs_9  = Маленький скелет
+arena:mobs_10 = Середній скелет
+arena:mobs_11 = Великий скелет
+arena:mobs_12 = Король скелетів
+arena:mobs_13 = Маленька Зомбі-свинолюдина
+arena:mobs_14 = Середня Зомбі-свинолюдина
+arena:mobs_15 = Велика Зомбі-свинолюдина
+arena:mobs_16 = Король Зомбі-свинолюдиней
+arena:mobs_17 = Маленька лусківниця
+arena:mobs_18 = Середня лусківниця
+arena:mobs_19 = Велика лусківниця
+arena:mobs_20 = Королева лусківниць
+arena:mobs_21 = Маленька відьма
+arena:mobs_22 = Середня відьма
+arena:mobs_23 = Велика відьма
+arena:mobs_24 = Королева відьм
+arena:mobs_25 = Маленький кролик
+arena:mobs_26 = Середній кролик
+arena:mobs_27 = Великий кролик
+arena:mobs_28 = Король кроликів
+arena:mobs_29 = Маленький Ґаст
+arena:mobs_30 = Середній Ґаст
+arena:mobs_31 = Великий Ґаст
+arena:mobs_32 = Король Ґастів
+arena:mobs_33 = Коронавірус
+arena:mobs_34 = Дикий вовк
+arena:mobs_35 = Шалений кролик
+arena:mobs_36 = Житель-боєць
+arena:mobs_37 = БОС
+;---
+arena:data.negative_maxhealth       = Значення 'max_health' не може бути нижче одиниці
+arena:data.over_maxhealth           = Значення 'max_health' більше значення 32767
+arena:data.negative_armor           = Значення броні не має бути меньше нуля
+arena:data.bad_armor                = ID броні не знайдено
+arena:data.negative_increase_damage = Значення 'increase_damage' не може бути від'ємним
+arena:data.over_increase_damage     = Значення 'increase_damage' більше значення 32767
+arena:data.negative_healing         = Значення 'healing' не може бути від'ємним
+arena:data.over_healing             = Значення 'healing' перевищує значення 32767
+arena:data.negative_damage          = Значення 'damage' не може бути нижче одиниці
+arena:data.over_damage              = Значення 'damage' перевищує значення 32767
+arena:data.negative_health          = Значення 'health' не може бути від'ємним
+arena:data.over_health              = Значення 'health' перевищує значення 32767
+arena:data.health_great_maxhealth   = Значення 'health' перевищує значення 'maxHealth' 
+arena:data.entity_is_empty          = Entity є пустим, неможливо нанести урон
+arena:data.healing_was_use          = Зцілення уже використалось
+arena:player.is_hungry_title        = Ви голодні
+arena:player.is_hungry              = Ви не можете битись, так як голодні
+arena:player.cooldown               = Почекайте перед початком наступного бою
+arena:player.empty_target           = Не вдалось знайти гравця по рейтингу
+arena:player.bad_target             = Не вдалось отримати данні суперника, спробуйте пізніше
+arena:player.empty_entity           = Суперник не знайдений, можливо бій вже закінчився раніше
+arena:dev.title                     = Створення свого боса | DEV
+arena:dev.description               = Створи свого боса і бийся з ним
+arena:dev.entity_success_created    = Істота створена
+arena:dev.name_of_entity            = Ім'я істоти
+arena:dev.health_of_entity          = Життя істоти
+arena:dev.damage_of_entity          = Урон істоти
+arena:dev.armor_of_entity           = Броня істоти
+arena:dev.increase_damage_of_entity = Критичний урон істоти
+arena:dev.healing_of_entity         = Лікування істоти
+arena:dev.create_entity             = Створити істоту
+arena:word.to_battle                = Боротись
+arena:word.win                      = ПЕРЕМОГА
+arena:word.win_player.description   = Ви перемогли гравця (+%[rating] до рейтингу)
+arena:word.win_entity.description   = Ви перемогли чудовисько
+arena:word.health                   = Життя
+arena:word.healing                  = Лікування
+arena:word.increase_damage          = Крит.атака
+arena:word.go_damage                = Бити
+arena:word.go_increase_damage       = Критичний урон
+arena:word.go_healing               = Вилікуватись
+arena:word.go_attack                = Напасти
+arena:word.go_attack_online         = Напасти на гравця
+arena:word.go_attack_dev            = Створити свого боса
+arena:word.loss                     = Поразка
+arena:word.loss_player.description  = Ви програли (-%[rating] от рейтингу)
+arena:word.loss_entity.description  = Ви програли
+arena:online.title                  = Онлайн бій
+arena:single.title                  = Бій з чудовиськами
+arena:animals.info                  = %[entity] додає %[damage] до урону
+arena:history.title                 = Перелік онлайн атак
+arena:history.my_attacks            = Мої атаки
+arena:history.enemy_attacks         = Чужі атаки
+arena:history.empty                 = Історія порожня
+arena:history.time_of_attack        = Час бою
+arena:history.date_of_attack        = Дата нападу
+arena:training.title                = Покращення можливостей
+arena:training.player_attacking     = Поки ви воюєте, ви не можете покращити стату
+arena:training.up_damage_success    = Сила була покращена
+arena:training.up_health_success    = Здоров'я було покращене
+arena:training.up_healing_success   = Зцілення було покращене
+arena:training.up_incdamage_success = Критична атака була покращена 
+arena:training.up_damage            = до сили за
+arena:training.up_health            = до здоров'я за
+arena:training.up_healing           = до лікування за
+arena:training.up_incdamage         = до крит.атаки за
+arena:training.healing_open         = Буде доступно після вбивства "Короля скелетів"
+arena:training.incdamage_open       = Буде доступно після вбивства "Короля Зомбі-свинолюдей"
+arena:training.info                 = Кожне покращення додає +%[amylet]
+arena:league_1                      = Мерець
+arena:league_2                      = Новачок
+arena:league_3                      = Боєць
+arena:league_4                      = Мисливець
+arena:league_5                      = Воїн
+arena:league_6                      = Спецназ
+arena:league_7                      = Невбивний
+arena:league_8                      = ПОВЕЛИТЕЛЬ
+;---------------------------
+auth:login.fail            = Неправильний нік або пароль
+auth:login.length_of_nick  = Нік має бути від 3х до 16-ти символів
+auth:login.length_of_pass  = Пароль має бути від 3х до 32-х символів
+auth:login.banned          = Ваш аккаунт заблокований по причині: %[reason], до кінця блокування: %[time]
+auth:page.already_login    = Ви вже увійшли в аккаунт
+auth:page.title            = Авторизація
+auth:page.description      = Привіт, ти в грі %{data:web.fullname}, добувай блоки, крафть інструменти, готуй зілля, спілкуйся і все інше чекає тебе тут!!!
+auth:page.start_game       = Почати гру
+auth:form.nick             = Нік
+auth:form.nick.placeholder = Нік...
+auth:form.submit           = Увійти
+;---------------------------
+armor:helmet.name     = Шолом
+armor:chestplate.name = Нагрудник
+armor:leggings.name   = Наголінники
+armor:boots.name      = Чоботи
+;---------------------------
+fishing:goto_arena = На риболовлі вас зустрів бос!
+;---------------------------
+inventory:item_not_added = Предмет не був доданий в інвентарь
