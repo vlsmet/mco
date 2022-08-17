@@ -483,6 +483,7 @@ div.beta_block {
   height: 15px;
   width: 8px;
   cursor: default;
+  white-space: nowrap;
 }
 .chat_indicator:after {
   content: "[OFF]";
@@ -986,7 +987,7 @@ input[type="radio"].minecraft_radio + label[for] {
   display: block;
   min-height: 18px;
   color: inherit;
-  background-image: url("/view/texture_pack/standart/icon/16/selected_off.png");
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMklEQVQ4T2NkYGD4z0ABYKSaARFhkSS5Y8Wq5WD1cBeMGsDAMBoGwyIMSMoISIopzo0ALEY0AStY5RIAAAAASUVORK5CYII=");
   background-position: 2px 1px;
   background-repeat: no-repeat;
   padding-left: 26px;
@@ -1002,7 +1003,7 @@ input[type="radio"].minecraft_radio + label[for] {
 a.minecraft_radio:hover,
 label.minecraft_radio:hover > input[type="radio"] + span,
 input[type="radio"].minecraft_radio + label[for]:hover {
-  background-image: url("/view/texture_pack/standart/icon/16/selected_hover_off.png");
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAM0lEQVQ4T2P8////fwYKACPVDIgMjyLJHctXLgOrh7tg1AAGhtEwGBZhQFJGQFJMcW4EAAnXY9HZpLVuAAAAAElFTkSuQmCC");
 }
 a.minecraft_radio.on,
 label.minecraft_radio > input[type="radio"]:checked + span,
