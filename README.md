@@ -1,9 +1,8 @@
-# mco
+# This is [![MobileCubeOnline](view/logo.png)](https://mco.mobi/) frontend repository
 
-HELLO WORLD ggggggggggggggggggggggggggg
+**MCO** is cube world. Create your person and will be the best.
 
-test
-
-vlsmet test conflict
-
-llllllllllllllllOlllllllllllllll
+## Community
+- Telegram group: https://t.me/mco_mobi
+- WebApplication: https://mco.mobi/
+- Support: support@mco.mobi
