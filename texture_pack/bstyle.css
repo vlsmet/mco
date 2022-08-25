@@ -91,15 +91,20 @@ parsererror > div:before {
 parsererror > h3 {
   display: none !important;
 }
+
+/* CSS Debugger */
 body.css_debug *:hover {
   outline: 1px solid #8BC34A;
 }
-body.css_debug span:hover, body.css_debug img:hover, body.css_debug a:hover {
+body.css_debug span:hover,
+body.css_debug img:hover,
+body.css_debug a:hover {
   outline: 1px solid #0060df;
 }
-body.css_debug div:hover{
+body.css_debug div:hover {
   outline: 1px solid #d30000;
 }
+
 
 /* Popup for [title] */
 [title]:after,
@@ -147,6 +152,7 @@ div.beta_block {
   right: 0;
   top: 0;
   opacity: 0.5;
+  white-space: nowrap;
 }
 
 /* Focus-ring styles */
@@ -282,9 +288,14 @@ div.beta_block {
   white-space: nowrap;
   overflow: hidden;
 }
+.lent.normal {
+  margin:5px 3px;
+  bottom: 0;
+}
 .lent > img {
   vertical-align: top;
   margin-top: -2px;
+  white-space: nowrap;
 }
 
 /* Blocks */
@@ -483,7 +494,6 @@ div.beta_block {
   height: 15px;
   width: 8px;
   cursor: default;
-  white-space: nowrap;
 }
 .chat_indicator:after {
   content: "[OFF]";
@@ -565,17 +575,55 @@ div.beta_block {
   position: absolute;
   left: 2px;
   background-image: url(/view/texture_pack/standart/image/enchanted_item_glint.png);
+  --background-size: 124px;
   animation: 5s enchanted_item_glint infinite linear;
   opacity: 0.5;
   pointer-events: none;
+  mix-blend-mode: hard-light;
+  filter: brightness(2.5);
 }
 @keyframes enchanted_item_glint {
   0% {
     background-position: 50px;
   }
   100% {
-    background-position: 0px 180px;
+    background-position: 0px 180px
   }
+}
+@keyframes enchanted_item_glint_2 {
+  0%, 100% {
+    background-position: 0;
+  }
+  25% {
+    background-position: 100px 50px;
+  }
+  50% {
+    background-position: 50px 100px;
+  }
+  75% {
+    background-position: 50px 75px;
+  }
+}
+.invslot > .invstar {
+  position: absolute;
+  top: -2px;
+  /* background-color: #cb00cb; */
+  left: -2px;
+  color: white;
+  border-right: 20px solid transparent;
+  border-top: 20px solid #cb00cb;
+  height: 0;
+  width: 0;
+  /* line-height: 0; */
+  pointer-events: none;
+}
+.invslot > .invstar:before {
+  content: '★';
+  color: white;
+  /* line-height: 0; */
+  position: relative;
+  top: -21px;
+  left: 1px;
 }
 .invslot > .invcount {
   display: block;
@@ -1713,41 +1761,15 @@ sup,
 }
 
 /* Unknown */
-.c_gray_dark {
-  color: #777 !important;
+.c_gray_light {
+  color: #adadad !important;
 }
 .c_gray {
   color: #808080 !important;
 }
-.c_gray_light {
-  color: #adadad !important;
+.c_gray_dark {
+  color: #777 !important;
 }
 .c_black {
   color: #000 !important;
-}
-
-
-
-
-
-.invstar {
-  position: absolute;
-  top: -2px;
-  /* background-color: #cb00cb; */
-  left: -2px;
-  color: white;
-  border-right: 20px solid transparent;
-  border-top: 20px solid #cb00cb;
-  height: 0;
-  width: 0;
-  /* line-height: 0; */
-  pointer-events: none;
-}
-.invstar:before {
-  content: '★';
-  color: white;
-  /* line-height: 0; */
-  position: relative;
-  top: -21px;
-  left: 1px;
 }
