@@ -460,9 +460,8 @@ inventory:material.bucket_empty        = Пустое ведро
 inventory:material.bucket_empty^s      = Пустых ведра
 inventory:material.bucket_empty^s^more = Пустых вёдер
 ;---
-inventory:material.bucket_water        = Водро веды
-inventory:material.bucket_water^s      = Водра веды
-inventory:material.bucket_water^s^more = Водров веды
+inventory:material.bucket_water        = Ведро воды
+inventory:material.bucket_water^s      = Ведра воды
 ;---
 inventory:material.iron_door        = Железная дверь
 inventory:material.iron_door^s      = Железных двери
