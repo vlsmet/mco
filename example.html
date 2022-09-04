@@ -22,7 +22,6 @@
         <a href=""><img src="view/error.png" height="20" width="20" alt="refresh"/></a>
       </div>
     </div>
-
     <!-- Level table (full hunger bar) -->
     <div class="table_main">
       <table style="width:100%;font-size:13px;font-weight:bolder;white-space:nowrap">
@@ -91,7 +90,11 @@
     <div class="table_msg center c_red bold">.table_msg + .center + .c_red + .bold</div>
     <div class="table_msg left c_green italic">.table_msg + .left + .c_green + .italic</div>
     <div class="table_msg right c_blue underline">.table_msg + .right + .c_blue + .underline</div>
-
+    <div class="table_msg">
+        <div class="center">Settings the test page</div>
+        <hr/>
+        <label class="minecraft_switch"><input type="checkbox" id="switch_night_mode"/><span>Night mode</span></label>
+    </div>
     <!-- Other -->
     <div class="table_msg">
       <!-- Color classes -->
@@ -465,5 +468,20 @@
       <br/>
       vlsmet © 2022
     </div>
+    <script><!--//--><![CDATA[//><!--
+        var switch_night_mode = document.getElementById("switch_night_mode");
+        var link_night_mode = document.createElement("link");
+        link_night_mode.setAttribute("rel", "stylesheet");
+        link_night_mode.setAttribute("type", "text/css");
+        link_night_mode.setAttribute("media", "all");
+        link_night_mode.setAttribute("href", "texture_pack/bstyle_night.css");
+        switch_night_mode.onclick = function(e){
+            if(e.target.checked){
+                document.head.appendChild(link_night_mode);
+            }else{
+                link_night_mode.remove();
+            }
+        }
+    //--><!]]></script>
   </body>
 </html>
