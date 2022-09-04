@@ -64,7 +64,7 @@ input.minecraft_file:active::file-selector-button{
 }
 .mbutton {
     color: #009364;
-    background: 9px 1px #101010 no-repeat;
+    background-color: #101010;
     border-color: #404040 #242424 #242424 #404040;
 }
 .mbutton:hover {
