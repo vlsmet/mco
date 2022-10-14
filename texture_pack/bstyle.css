@@ -551,6 +551,7 @@ div.beta_block {
 .invslot.selected {
   outline: 4px solid #00e0ff;
   position: relative;
+  z-index: 1;
 }
 .invslot:hover {
   background-color: #6aad43;
