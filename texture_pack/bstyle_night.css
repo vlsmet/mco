@@ -13,7 +13,7 @@ body {
   border-color: #404040 #0a0a0a #0a0a0a #404040;
 }
 .lent {
-  color: #1792d5;
+  color: #0088ab;
   background-color: #0a0a0a;
   background-image: -webkit-linear-gradient(top, #404040 0%, #020202 100%);
   background-image: -moz-linear-gradient(top, #404040 0%, #020202 100%);
@@ -21,27 +21,32 @@ body {
   background-image: -o-linear-gradient(top, #404040 0%, #020202 100%);
   background-image: linear-gradient(to bottom, #404040 0%, #020202 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#404040',endColorstr='#020202',GradientType=0);
-  border-top: 2px solid #404040;
-  border-bottom: 2px solid #262626;
+  border-top-color: #404040;
+  border-bottom-color: #262626;
 }
 .table_msg, .table_msg2, .table_mbutton, .table_minecraft_radio, .spoiler_wrap > .spoiler_body {
   background-color: black;
-  border: 1px solid #404040;
+  border-color: #404040;
 }
+.table_minecraft_radio {
+  background-color: #151515;
+  color: #fff;
+}
+
 .c_red {
-  color: #bf0000 !important;
+  color: #ff4343 !important;
 }
 .c_green {
-  color: #008b00 !important;
+  color: #34a625 !important;
 }
 .c_blue {
-  color: #4955ff !important;
+  color: #606afd !important;
 }
 .c_black {
   color: #fff !important;
 }
 .c_gray_light {
-  color: #2e2e2e !important;
+  color: #9b9b9b !important;
 }
 .c_gray_dark {
   color: #d3d3d3 !important;
@@ -63,30 +68,31 @@ input.minecraft_file:active::file-selector-button{
   border-color: #1f500b #0a2400 #0a2400 #1f500b;
 }
 .mbutton {
-  color: #009364;
-  background-color: #101010;
-  border-color: #404040 #242424 #242424 #404040;
+  color: #21a379;
+  background-color: #1c1c1c;
+  border-color: #303030 #121212 #121212 #303030;
 }
 .mbutton:hover {
-  background-color: #000830;
-  border-color: #002667 #001c41 #001c41 #002667;
+  background-color: #000a3c;
+  border-color: #002667 #000c1c #000c1c #002667;
 }
 .minecraft_textarea, input.minecraft_input {
   color: white;
   background-color: #202020;
-  border-color: #404040 #000 #404040;
+  border-color: #404040 #404040 #404040;
+  border-style: solid solid;
 }
 
 parsererror {
   background-color: #720000 !important;
-  border: 1px solid white !important;
+  border-color: white !important;
 }
 parsererror > div:before {
   color: #ff7b7b;
 }
 .progress {
   background-color: black;
-  outline: 1px solid #616161;
+  outline-color: #616161;
 }
 .progress.arena > .progress_rating.red {
   background-color: #ab0000;
@@ -103,19 +109,19 @@ parsererror > div:before {
 .table_error {
   color: #ffbebe;
   background-color: #450000;
-  border: 2px outset #660000;
+  border-color: #660000;
 }
 .bbcode_warning {
   color: #d7d7d7;
   background-color: #634802;
-  border: 1px solid #b8b8b8;
+  border-color: #b8b8b8;
 }
 .page_button.selected {
   color: #ffffff;
   background-color: #595907;
 }
 a {
-  color: #aa4000;
+  color: #f19866;
 }
 .myblock_slot.myblock_slot_red {
   box-shadow: 0 0 0 3px #b30000;
@@ -141,22 +147,22 @@ a {
   border-color: #7d7d7d;
 }
 .invslot.selected {
-  outline: 4px solid #007686;
+  outline-color: #007686;
 }
 table.cool tr:first-child > td, table.cool tr:first-child > th {
-  border-top: 1px solid #616161;
+  border-top-color: #616161;
 }
 table.cool td:first-child, table.cool th:first-child {
-  border-left: 1px solid #616161;
+  border-left-color: #616161;
 }
 table.cool tr > td, table.cool tr > th {
-  border-bottom: 1px solid #616161;
+  border-bottom-color: #616161;
 }
 table.cool td:last-child, table.cool th:last-child {
-  border-right: 1px solid #616161;
+  border-right-color: #616161;
 }
 table.cool th {
-  color: #dbdbdb;
+  color: #f6f6f6;
   background-color: #262626;
   background-image: -webkit-linear-gradient(top, #484848 0%, #000000 100%);
   background-image: -moz-linear-gradient(top, #484848 0%, #000000 100%);
@@ -166,12 +172,12 @@ table.cool th {
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#484848,endColorstr=#000000);
 }
 table.cool td {
-  color: #008cce;
+  color: #00a4f1;
 }
 pre.cool, code {
   color: #fff;
   background-color: #2a2a2a;
-  border: 1px solid #757575;
+  border-color: #757575;
 }
 .panel.blue {
   background-color: #003264;
@@ -199,5 +205,14 @@ pre.cool, code {
 }
 div.beta_block {
   background-color: #555555;
-  border-bottom: 1px solid #a8a8a8;
+  border-bottom-color: #a8a8a8;
+}
+hr {
+  border-top-color: #4a4a4a;
+}
+.refresh_box {
+  color: #929292;
+}
+.mail-element {
+  border-color: #484848;
 }
