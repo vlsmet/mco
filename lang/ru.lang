@@ -688,3 +688,34 @@ mco2d:title                = Браузерный Mobile Cube 2D
 mco2d:description          = 2D Кубическая браузерная игра, для рисования артов и ваших развлечений во время скуки
 mco2d:noscript.description = Похоже что в вашем браузере выключен JavaScript
 mco2d:noscript.button      = Как включить?
+;------------ /bbcode -------------
+bbcode:title = ВВ-Коды для форума
+;------------ /currency ------------
+currency:title                  = Валюта
+;--
+currency:create.title           = Создание валюты
+currency:create.notice          = Внимание, введённые в данных полях данные, невозможно будет изменить после создания валюты
+currency:create.button          = Создать валюту
+currency:create.form.name       = Название валюты (a-z)
+currency:create.form.logo       = Картинка валюты
+currency:create.form.name_short = Короткое название (3 символа)
+currency:create.form.decimals   = Десятичная точность (2 это 0.00)
+currency:create.form.symbol     = Символ валюты
+currency:create.form.is_fixed   = Запрет генерации новых монет
+currency:create.form.is_public  = Публичные транзакции
+currency:create.form.budget     = Количество сгенерированных монет
+;---
+currency:create.post.name.is_short         = Название должно быть от 3-х символов
+currency:create.post.name.is_long          = Название не может быть больше 128-ми символов
+currency:create.post.name.bad_letter       = Название может быть только из латинских символов
+currency:create.post.name_short.length     = Короткое название должно быть из 3-х символов
+currency:create.post.name_short.bad_letter = Короткое название может быть только из латинских символов
+currency:create.post.decimals.bad_value    = Десятичная точность может быть от 0 до 15
+currency:create.post.symbol.bad_value      = Символ валюты может быть только один
+;---
+currency:market.button = Маркет
+;---------------------------
+test:img.path.is_long   = Адрес иконки не должен быть больше 128 символов
+test:img.path.is_short  = Адрес иконки не должен быть меньше 8 символов
+test:img.path.bad_value = Ссылка введена неверно
+test:img.path.not_exist = Данная иконка не найдена

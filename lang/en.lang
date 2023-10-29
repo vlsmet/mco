@@ -625,3 +625,29 @@ mco2d:title                = Mobile Cube 2D
 mco2d:description          = MCO 2D is a cube game for art drawing and fun
 mco2d:noscript.description = It seems that JavaScript is disabled in your browser
 mco2d:noscript.button      = How to enable?
+;------------ /bbcode -------------
+bbcode:title = BBCode for a forum
+;------------ /currency ------------
+currency:title                  = Currency
+;---
+currency:create.title           = Currency create
+currency:create.notice          = Warning, this entered data don't editing after created
+currency:create.button          = Create new currency
+currency:create.form.name       = Name of currency (a-z)
+currency:create.form.logo       = Picture of currency
+currency:create.form.name_short = Short name (3 letters)
+currency:create.form.decimals   = Decimal precision (2 is 0.00)
+currency:create.form.symbol     = Char of currency
+currency:create.form.is_fixed   = Is fixed budget of money?
+currency:create.form.is_public  = Are public transactions?
+currency:create.form.budget     = Count of generated money
+;---
+currency:create.post.name.is_short         = Name much be not less 3 letters
+currency:create.post.name.is_long          = Name much be not more then 128 letters
+currency:create.post.name.bad_letter       = Name much contains only latin letters
+currency:create.post.name_short.length     = Short name much be only 3 letters
+currency:create.post.name_short.bad_letter = Short name much contains only latin letters
+currency:create.post.decimals.bad_value    = Decimals much be from 0 to 15
+currency:create.post.symbol.bad_value      = Symbol much be only 1 char
+;---
+currency:market.button = Market
