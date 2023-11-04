@@ -21,7 +21,7 @@ data:web.fullname = МобайлКуб
 data:web.name     = МКО
 ;---------------------------
 data:page.online  = Онлайн: %[online]
-data:page.total   = Регистраций %[total]
+data:page.total   = Регистраций: %[total]
 data:page.forum   = Форум
 data:page.chat    = Чат
 data:page.news    = Новости
