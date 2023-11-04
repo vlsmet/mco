@@ -25,7 +25,7 @@ data:page.chat    = Chat
 data:page.news    = News
 data:page.2dworld = Singleplay 2D-World
 ;---------------------------
-data:head.title = %{data:web.fullname} %{data:page.online}
+data:head.title = %{data:web.fullname} Online
 ;---------------------------
 data:game.my_hungry        = You have %[hungry] hunger points
 data:game.daily_gift       = Daily gift

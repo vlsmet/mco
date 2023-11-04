@@ -27,7 +27,7 @@ data:page.chat    = Чат
 data:page.news    = Новости
 data:page.2dworld = Играть в 2D-Мир
 ;---------------------------
-data:head.title = %{data:web.fullname} %{data:page.online}
+data:head.title = %{data:web.fullname} Онлайн
 ;---------------------------
 data:game.my_hungry        = У вас %[hungry] ед.сытости
 data:game.daily_gift       = Ежедневный бонус
