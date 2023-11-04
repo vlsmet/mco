@@ -19,7 +19,7 @@
 ;---------------------------
 data:page.total   = Реєстрацій
 data:page.news    = Новини
-data:page.2dworld = Грати в 2д світ
+data:page.2dworld = Грати в 2D-світ
 ;---------------------------
 data:game.daily_gift       = Щоденний бонус
 data:game.up_level         = Вітаємо, ви отримали %[level] рівень
@@ -68,7 +68,7 @@ data:moderation.ban.title            = Бан/Блокування гравця
 data:moderation.ban.bad_time         = Некоректний час бану
 data:moderation.ban.reason_too_long  = Занадто довга причина
 data:moderation.ban.reason_too_short = Занадто коротка причина
-data:moderation.ban.already_banned   = Гравець вже заблокован/заблокован
+data:moderation.ban.already_banned   = Гравець вже заблокований/заблокована
 data:moderation.ban.success          = Бан успішно виданий
 data:moderation.ban.time_of_ban      = Час бана в годинах (форум+чат)
 data:moderation.ban.submit           = Забанити
@@ -105,7 +105,7 @@ animals:horse.eggs.eat_cancel     = Відмінити
 animals:horse.eggs.eated          = Ви з'їли свого коня! У вас тепер його немає
 animals:horse.eggs.to_eat         = З'їсти
 animals:horse.damage              = Урон коня
-animals:horse.health              = Життя коня
+animals:horse.health              = Здоров'я коня
 animals:horse.upgrade_is_full     = Кінь прокачаний повністю
 ;---------------------------
 arena:mobs_0  = Тренувальний селянин
@@ -172,7 +172,7 @@ arena:dev.title                     = Створення свого боса | D
 arena:dev.description               = Створи свого боса і бийся з ним
 arena:dev.entity_success_created    = Істота створена
 arena:dev.name_of_entity            = Ім'я істоти
-arena:dev.health_of_entity          = Життя істоти
+arena:dev.health_of_entity          = Здоров'я істоти
 arena:dev.damage_of_entity          = Урон істоти
 arena:dev.armor_of_entity           = Броня істоти
 arena:dev.increase_damage_of_entity = Критичний урон істоти
@@ -182,7 +182,7 @@ arena:word.to_battle                = Боротись
 arena:word.win                      = ПЕРЕМОГА
 arena:word.win_player.description   = Ви перемогли гравця (+%[rating] до рейтингу)
 arena:word.win_entity.description   = Ви перемогли чудовисько
-arena:word.health                   = Життя
+arena:word.health                   = Здоров'я
 arena:word.healing                  = Лікування
 arena:word.increase_damage          = Крит.атака
 arena:word.go_damage                = Бити
@@ -216,7 +216,7 @@ arena:training.up_incdamage         = до крит.атаки за
 arena:training.healing_open         = Буде доступно після вбивства "Короля скелетів"
 arena:training.incdamage_open       = Буде доступно після вбивства "Короля Зомбі-свинолюдей"
 arena:training.info                 = Кожне покращення додає +%[amylet]
-arena:league_1                      = Мерець
+arena:league_1                      = Мрець
 arena:league_2                      = Новачок
 arena:league_3                      = Боєць
 arena:league_4                      = Мисливець
@@ -239,9 +239,61 @@ auth:form.submit           = Увійти
 ;---------------------------
 armor:helmet.name     = Шолом
 armor:chestplate.name = Нагрудник
-armor:leggings.name   = Наголінники
+armor:leggings.name   = Поножі
 armor:boots.name      = Чоботи
 ;---------------------------
 fishing:goto_arena = На риболовлі вас зустрів бос!
 ;---------------------------
 inventory:item_not_added = Предмет не був доданий в інвентарь
+;------------ /shop ------------
+shop:title             = Крамниця
+shop:button.eatery     = Перекусна
+shop:button.animals    = Тварини
+shop:button.armor      = Обладунки
+shop:uniqueness        = Підвищення унікальності
+shop:button.club       = Створити клуб
+shop:button.skins      = Скіни
+shop:button.privileges = Привілегії
+;------------ /save ------------
+save:title                   = Збереження аккаунту
+save:error                   = Помилка збереження аккаунту
+save:error.account_was_saved = Ви вже зберегли свій аккаунт
+save:success                 = Аккаунт успішно збережений
+save:success.finish          = Аккаунт успішно збережений, приємної гри!
+save:reward                  = За збереження аккаунту ви отримаєте
+save:and                     = і
+save:nickname                = Нік:
+save:password                = Пароль:
+save:icon                    = Выберите значок:
+save:icon.steve              = Стів
+save:icon.alex               = Алекс
+save:enter                   = Введіть
+save:correct                 = коректний
+save:otherwise               = інакше ви не зможете відновити свій аккаунт
+save:button.save             = Зберегти
+;------------ /moderators ------------
+moderators:title      = Список модераторів
+moderators:moderators = Модератори
+moderators:list.empty = Модераторів немає -_-
+moderators:nickname   = Нік
+moderators:position   = Посада
+;------------ /online ------------
+online:title = Онлайн
+online:empty = Онлайн порожній
+online:user.nickname = Нік гравця
+online:level = Рівень
+online:amulet = Амулет
+;------------ /smiles ------------
+smiles:title = Смайли
+smiles:invite =  Ми пропонуємо вам переглянути наш список анімованих смайлів в нашому стилі
+smile:code = Код смайла
+smile:icon = Іконка смайла
+smile:back = Повернутися
+;------------ /reg ------------
+reg:captcha.empty       = Введіть капчу в поле введення
+reg:captcha.bad_length  = Капча повинна бути з 3-х символів
+reg:captcha.no_captcha  = Не вдалося отримати код капчі
+reg:captcha.not_equals  = Капча введена невірно
+reg:title = Реєстрація
+reg:captcha.description = Для створення аккаунту, потрібно ввести капчу, якщо не бачите, натисніть на картинку, щоб змінити її
+reg:button.submit       = Перевірити

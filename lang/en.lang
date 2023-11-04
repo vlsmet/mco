@@ -18,8 +18,8 @@
 data:web.fullname = MobileCube
 data:web.name     = MCO
 ;---------------------------
-data:page.online  = Online
-data:page.total   = Total
+data:page.online  = Online: %[online]
+data:page.total   = Total: %[total]
 data:page.forum   = Forum
 data:page.chat    = Chat
 data:page.news    = News
@@ -102,7 +102,7 @@ data:foot.special_offer     = Special offer
 data:foot.quiz              = Quiz
 data:foot.console           = Console
 data:foot.other_games       = Other games
-data:foot.speed_of_code     = sec
+data:foot.speed_of_code     = %[speed] sec
 ;---------------------------
 data:moderation.ban.title            = Ban/Block this player
 data:moderation.ban.bad_time         = Invalid time of ban
@@ -651,3 +651,57 @@ currency:create.post.decimals.bad_value    = Decimals much be from 0 to 15
 currency:create.post.symbol.bad_value      = Symbol much be only 1 char
 ;---
 currency:market.button = Market
+;------------ /test ------------
+test:img.path.not_exist = This icon does not exist
+;------------ /shop ------------
+shop:title             = Shop
+shop:button.eatery     = Eatery
+shop:button.animals    = Animals
+shop:button.armor      = Armor
+shop:uniqueness        = Increase uniqueness
+shop:button.club       = Create club
+shop:button.skins      = Skins
+shop:button.privileges = Privileges
+;------------ /save ------------
+save:title                   = Save account
+save:error                   = Account saving error
+save:error.account_was_saved = Account was saved before
+save:success                 = Account successfully saved
+save:success.finish          = Account successfully saved, good luck!
+save:reward                  = For saving you will get
+save:and                     = and
+save:nickname                = Nickname:
+save:password                = Password:
+save:icon                    = Choose your icon:
+save:icon.steve              = Steve
+save:icon.alex               = Alex
+save:enter                   = Enter
+save:correct                 = correct
+save:otherwise               = otherwise, you will not be able to restore your account
+save:button.save             = Save
+;------------ /moderators ------------
+moderators:title      = Moderators list
+moderators:moderators = Moderators
+moderators:list.empty = Moderators list empty -_-
+moderators:nickname   = Nickname
+moderators:position   = Position
+;------------ /online ------------
+online:title = Online
+online:empty = Online empty
+online:user.nickname = User nickname
+online:level = Level
+online:amulet = Amulet
+;------------ /smiles ------------
+smiles:title = Smiles
+smiles:invite = We invite you to view our list of animated smiles in our style
+smile:code = Smile code
+smile:icon = Smile icon
+smile:back = Back
+;------------ /reg ------------
+reg:captcha.empty       = Enter the captcha in the input field
+reg:captcha.bad_length  = Captcha should be of 3 characters
+reg:captcha.no_captcha  = Failed to get captcha code
+reg:captcha.not_equals  = Captcha is incorrect
+reg:title               = Registration
+reg:captcha.description = To create an account, you have to enter the captcha, if you don't see it, click on the picture to change it
+reg:button.submit       = Check
