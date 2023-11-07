@@ -782,6 +782,7 @@ myblock:error.user_not_permit        = Вы не можете выполнить
 myblock:error.hunger                 = Вы слишком голодны чтобы выполнить это действие
 myblock:error.bad_looking_for_block  = Данный блок ещё не куплен
 myblock:success.looking_for_block    = Блок выбран, идут поиски
+myblock:error.bad_looking            = Невозможно выбрать блок, не добыв старый
 myblock:success.upgrade_slot         = Слот успешно улучшен
 myblock:success.buy_slot             = Слот успешно куплен
 myblock:info.max_slot_level          = Слот улучшен полностью
